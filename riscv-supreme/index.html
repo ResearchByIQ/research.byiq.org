@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RISC-V Supreme — ByIQ Research</title>
+  <meta name="description" content="Massively parallel RISC-V deployment at data-center scale: many small cores, one coherent operating story. A ByIQ Research proof of concept.">
+  <link rel="canonical" href="https://research.byiq.org/riscv-supreme/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ByIQ Research">
+  <meta property="og:title" content="RISC-V Supreme — ByIQ Research">
+  <meta property="og:description" content="Massively parallel RISC-V deployment at data-center scale: many small cores, one coherent operating story. A ByIQ Research proof of concept.">
+  <meta property="og:url" content="https://research.byiq.org/riscv-supreme/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="RISC-V Supreme — ByIQ Research">
+  <meta name="twitter:description" content="Massively parallel RISC-V deployment at data-center scale: many small cores, one coherent operating story. A ByIQ Research proof of concept.">
+
+  <link rel="stylesheet" href="../assets/nocturne.css">
+  <link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="page-ground">
+    <header>
+      <nav class="nav site-nav" aria-label="Primary">
+        <a class="nav-brand" href="../">By<span class="brand-iq">IQ</span>&nbsp;Research</a>
+        <a class="nav-collapse" href="../#projects" aria-current="page">Projects</a>
+        <a class="nav-collapse" href="../about/">Thesis</a>
+        <a class="nav-collapse" href="../team/">Team</a>
+        <a class="btn btn-primary" href="mailto:research@byiq.org" style="margin-left:auto">Contact</a>
+      </nav>
+    </header>
+    <main id="main">
+      <div class="wrap">
+        <div class="breadcrumb"><a href="../#projects">Projects</a><span class="sep">/</span>RISC-V Supreme</div>
+
+        <div class="project-head">
+          <h1 class="project-title">RISC-V Supreme</h1>
+          <p class="project-lede">Massively parallel RISC-V at data-center scale — many small cores presented as one coherent operating story.</p>
+          <div class="project-actions">
+            <a class="btn btn-primary" href="mailto:research@byiq.org?subject=RISC-V%20Supreme%20research%20note">Read the research note</a>
+            
+          </div>
+        </div>
+
+        <hr class="rule-edge">
+      <div class="meta-strip">
+        <div>
+          <p class="meta-label">Domain</p>
+          <p class="meta-value">Compute</p>
+        </div>
+        <div>
+          <p class="meta-label">Stage</p>
+          <p class="meta-value">Research</p>
+        </div>
+        <div>
+          <p class="meta-label">Started</p>
+          <p class="meta-value">2026</p>
+        </div>
+        <div>
+          <p class="meta-label">Products</p>
+          <p class="meta-value">—</p>
+        </div>
+      </div>
+        <hr class="rule-edge">
+      </div>
+
+    <section class="stat-band" aria-label="Key figures">
+      <div class="stat-row">
+        <div>
+          <p class="stat-num">Many cores</p>
+          <p class="stat-label">Small RISC-V cores in parallel</p>
+        </div>
+        <div>
+          <p class="stat-num">One story</p>
+          <p class="stat-label">A coherent operating model</p>
+        </div>
+        <div>
+          <p class="stat-num">Data-center</p>
+          <p class="stat-label">The scale it targets</p>
+        </div>
+      </div>
+    </section>
+
+      <div class="wrap">
+      <section class="p-section split" aria-labelledby="problem">
+        <div>
+          <div class="kicker"><span class="kicker-dash" aria-hidden="true"></span><span class="kicker-text">The problem</span></div>
+          <h2 class="section-title measure-18" id="problem">Parallelism is easy to buy, hard to operate.</h2>
+        </div>
+        <div class="prose">
+          <p>Filling a data center with small, efficient RISC-V cores is now a purchasing decision. Operating thousands of them as one system is not — scheduling, memory, failure and observability were designed around a smaller number of larger machines.</p>
+          <p>Without a coherent operating story, massive parallelism turns into massive operational surface. The cores are cheap; the coordination is where the cost moves.</p>
+        </div>
+      </section>
+      <hr class="rule-inline">
+      <section class="p-section split" aria-labelledby="approach">
+        <div>
+          <div class="kicker"><span class="kicker-dash" aria-hidden="true"></span><span class="kicker-text">The approach</span></div>
+          <h2 class="section-title measure-18" id="approach">Make the fleet legible.</h2>
+        </div>
+        <div class="approach">
+          <div class="approach-item">
+            <p class="approach-num">01</p>
+            <div>
+              <h3 class="approach-title">Many small cores</h3>
+              <p class="approach-body">The design assumes a large population of small RISC-V cores as the substrate, rather than a handful of large processors — betting on parallel efficiency at data-center scale.</p>
+            </div>
+          </div>
+          <hr class="rule-inline">
+          <div class="approach-item">
+            <p class="approach-num">02</p>
+            <div>
+              <h3 class="approach-title">One coherent operating model</h3>
+              <p class="approach-body">On top of that substrate sits a single operating story for scheduling, memory and failure, so the fleet is administered as one system instead of thousands of independent machines.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <hr class="rule-inline">
+      <section class="p-section split" aria-labelledby="status">
+        <div>
+          <div class="kicker"><span class="kicker-dash" aria-hidden="true"></span><span class="kicker-text">Where it stands</span></div>
+          <h2 class="section-title measure-18" id="status">Research, stated plainly.</h2>
+        </div>
+        <div>
+        <table class="table">
+          <thead>
+            <tr><th>Milestone</th><th>Status</th><th>Evidence</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Operating-model design</td><td><span class="tag tag-outline">In progress</span></td><td>Internal study</td></tr>
+            <tr><td>Small-scale cluster</td><td><span class="tag tag-neutral">Next</span></td><td>—</td></tr>
+            <tr><td>Scheduling &amp; failure model</td><td><span class="tag tag-neutral">Next</span></td><td>—</td></tr>
+            <tr><td>Data-center pilot</td><td><span class="tag tag-neutral">Next</span></td><td>—</td></tr>
+          </tbody>
+        </table>
+        <p class="status-note">Figures on this page are targets and internal measurements at proof-of-concept stage. We share the methodology with anyone who wants to run it.</p>
+        </div>
+      </section>
+      <hr class="rule-inline">
+      <section class="p-section split" aria-labelledby="next">
+        <div>
+          <div class="kicker"><span class="kicker-dash" aria-hidden="true"></span><span class="kicker-text">What's next</span></div>
+          <h2 class="section-title measure-18" id="next">A cluster to argue against.</h2>
+        </div>
+        <div class="prose">
+          <p>The near-term goal is a small cluster that makes the operating model concrete — enough cores to expose the scheduling, memory and failure questions the design has to answer.</p>
+          <p>RISC-V Supreme spins out of ByIQ Research if the operating model holds as the core count grows.</p>
+        </div>
+      </section>
+        <hr class="rule-edge">
+      <section class="related" aria-labelledby="related-heading">
+        <div class="related-head">
+          <span class="kicker-dash" aria-hidden="true"></span>
+          <span class="kicker-text" id="related-heading">Related projects</span>
+        </div>
+        <div class="related-grid">
+        <a class="card card-link" href="../inevitable-systems/">
+          <span class="card-kicker">Compute</span>
+          <span class="card-title">Inevitable Systems</span>
+          <span class="card-body">A language engine targeting 10⁶× fewer joules per token, with confidence-aware agentic decisions on the client.</span>
+        </a>
+        <a class="card card-link" href="../shaqwave/">
+          <span class="card-kicker">Silicon</span>
+          <span class="card-title">ShaqWave</span>
+          <span class="card-body">Circuit techniques 100× past same-node CMOS on speed and latency, no new fab.</span>
+        </a>
+        <a class="card card-link" href="../swiftboot/">
+          <span class="card-kicker">Infrastructure</span>
+          <span class="card-title">SwiftBoot</span>
+          <span class="card-body">Minimal Linux kernels for cloud hypervisors, 30 ms cold boot.</span>
+        </a>
+        </div>
+      </section>
+        <hr class="rule-edge">
+      </div>
+    </main>
+    <hr class="rule">
+    <footer class="site-footer">
+      <span>research.byiq.org — By<span class="brand-iq">IQ</span> Research</span>
+      <span class="footer-links">
+        <a href="../#projects">Projects</a>
+        <a href="../about/">Thesis</a>
+        <a href="../team/">Team</a>
+        <a href="mailto:research@byiq.org">Contact</a>
+      </span>
+    </footer>
+  </div>
+</body>
+</html>
