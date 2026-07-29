@@ -52,7 +52,7 @@
         </div>
         <div>
           <p class="meta-label">Stage</p>
-          <p class="meta-value">Silicon prototype</p>
+          <p class="meta-value">Pre-silicon</p>
         </div>
         <div>
           <p class="meta-label">Started</p>
@@ -119,6 +119,57 @@
         </div>
       </section>
       <hr class="rule-inline">
+      <section class="p-section" aria-labelledby="proof">
+        <div class="kicker"><span class="kicker-dash" aria-hidden="true"></span><span class="kicker-text">The first proof — 03</span></div>
+        <h2 class="section-title measure-18" id="proof">SHA-256d, in a single ripple.</h2>
+        <div class="prose" style="margin-top:24px">
+          <p>The first workload we ran the technique against is the one the whole proof-of-work economy stands on: <strong>SHA-256d</strong>, the double hash at the heart of Bitcoin and most mining chains. SHAQwave reduces the whole double-hash to a single wave of logic — no loops, no stalls — so a hash resolves in one uninterrupted pass, rather than marching through a hundred-plus pipeline stages.</p>
+          <p>On the same process node and the same die area as a modern mining ASIC, the target is a <strong>first hash in under 130&nbsp;picoseconds</strong> against roughly 130&nbsp;nanoseconds for the ASIC — while drawing under a tenth of the power. Per-core throughput stays comparable; what changes is the path the signal takes to get there — and that path is where the energy has always gone.</p>
+        </div>
+
+        <div class="prose" style="margin-top:28px">
+          <p>Blockchain mining has already climbed this ladder once. Each rung brought a step-change in hashes per second and per watt — and each one reset who could profitably compete:</p>
+        </div>
+        <figure class="chain-fig">
+          <ol class="chain" aria-label="Historical evolution of blockchain mining hardware, from CPU to ShaqWave">
+            <li class="chain-node"><span class="chain-era">CPU</span><span class="chain-note">General purpose</span></li>
+            <li class="chain-node"><span class="chain-era">GPU</span><span class="chain-note">Massively parallel</span></li>
+            <li class="chain-node"><span class="chain-era">FPGA</span><span class="chain-note">Reconfigurable</span></li>
+            <li class="chain-node"><span class="chain-era">ASIC</span><span class="chain-note">Fixed-function</span></li>
+            <li class="chain-node chain-node--now"><span class="chain-era">ShaqWave</span><span class="chain-note">Wavefront logic</span></li>
+          </ol>
+          <figcaption class="chain-caption">Bitcoin mining moved from CPUs (2009) to GPUs (2010), FPGAs (2011) and purpose-built ASICs (2013) — more than a billionfold gain in throughput in roughly four years. Then the curve flattened, as ASICs ran into the same process-node wall as everyone else. ShaqWave is the next rung on that ladder — reached not by a smaller transistor, but by a different kind of logic altogether.</figcaption>
+        </figure>
+
+        <table class="table" style="margin-top:40px">
+          <thead>
+            <tr><th>SHA-256d, per core</th><th>7nm mining ASIC</th><th>ShaqWave Q-wavefront</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Time to first hash</td><td>~130 ns</td><td><span class="tag tag-accent">&lt; 130 ps</span></td></tr>
+            <tr><td>First-hash latency</td><td>Baseline</td><td>&gt; 1000× lower</td></tr>
+            <tr><td>Throughput per core</td><td>High</td><td>Comparable</td></tr>
+            <tr><td>Power at equal area</td><td>100%</td><td>&lt; 10%</td></tr>
+            <tr><td>Switching activity</td><td>High</td><td>Minimal</td></tr>
+          </tbody>
+        </table>
+        <p class="status-note">Figures are targets and internal measurements of the SHA-256d wavefront core at proof-of-concept stage, benchmarked against a published 7nm ASIC. Full characterisation is disclosed to prospective partners and investors under agreement — the core itself is not open.</p>
+
+        <div class="prose" style="margin-top:28px">
+          <p>Mining is a race to a single number: the first miner to land a hash beneath the target takes the block and the newly minted coins — every time. Speed to that hash is the whole contest.</p>
+          <p>And it is not about mere throughput. At matched throughput, ShaqWave lands a <strong>thousand hashes before a current-generation ASIC returns its first</strong> — the block is claimed before the competition resolves hash number one.</p>
+          <p>Every prior rung on the ladder — CPU to GPU to FPGA to ASIC — bought that speed the same way, by multiplying more engines of the same fundamental kind. ShaqWave changes the kind of engine. Collapsing time-to-first-hash by a thousandfold is not a linear step along the curve; it is a <strong>10³ phase change</strong> in how the hash is computed — reached in a single propagation ripple rather than a hundred-stage march. Holding throughput while cutting energy per hash by roughly an order of magnitude at the same node, its effect on proof-of-work is not incremental but <strong>asymmetric</strong>: whoever fields it can match an entire network's hashrate at a fraction of its power bill.</p>
+        </div>
+        <blockquote class="pull">Proof-of-work rewards the cheapest joule. Change the architecture, and the frontier moves again.</blockquote>
+
+        <div class="prose" style="margin-top:26px">
+          <p>ShaqWave is not open source. We are selecting a small number of partners and investors to fund the next performance step-up of the blockchain economy — with first access to the SHA-256d core, its measured characterisation and the roadmap behind it.</p>
+        </div>
+        <div class="project-actions">
+          <a class="btn btn-primary" href="mailto:research@byiq.org?subject=ShaqWave%20SHA-256d%20partnership">Partner on the SHA-256d core</a>
+        </div>
+      </section>
+      <hr class="rule-inline">
       <section class="p-section split" aria-labelledby="status">
         <div>
           <div class="kicker"><span class="kicker-dash" aria-hidden="true"></span><span class="kicker-text">Where it stands</span></div>
@@ -130,13 +181,13 @@
             <tr><th>Milestone</th><th>Status</th><th>Evidence</th></tr>
           </thead>
           <tbody>
-            <tr><td>Circuit technique in silicon</td><td><span class="tag tag-accent">Running</span></td><td>Test structures</td></tr>
+            <tr><td>Circuit technique in silicon</td><td><span class="tag tag-outline">Simulated</span></td><td>Simulation</td></tr>
             <tr><td>Same-node CMOS comparison</td><td><span class="tag tag-outline">In progress</span></td><td>Characterisation ongoing</td></tr>
             <tr><td>Independent measurement</td><td><span class="tag tag-neutral">Next</span></td><td>—</td></tr>
-            <tr><td>Reference block</td><td><span class="tag tag-neutral">Next</span></td><td>—</td></tr>
+            <tr><td>Reference block</td><td><span class="tag tag-outline">In progress</span></td><td>SHA-256d wavefront core</td></tr>
           </tbody>
         </table>
-        <p class="status-note">Figures on this page are targets and internal measurements at proof-of-concept stage. We share the methodology with anyone who wants to run it.</p>
+        <p class="status-note">Figures on this page are targets and internal measurements at proof-of-concept stage. Commercial rights are reserved for the partners, investors and spin-off company this work is raising to build.</p>
         </div>
       </section>
       <hr class="rule-inline">

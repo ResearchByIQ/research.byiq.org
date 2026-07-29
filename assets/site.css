@@ -294,6 +294,49 @@ body { background: var(--color-bg); text-wrap: pretty; }
   color: color-mix(in srgb, var(--color-text) 60%, transparent);
 }
 
+/* Silicon-lineage chain — a horizontal progression (CPU → … → ShaqWave) whose
+   final node lifts to accent as the current frontier. Wraps to a column on
+   narrow screens; the connective arrow is dropped there to avoid dangling. */
+.chain {
+  list-style: none; margin: 32px 0 0; padding: 0;
+  display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 22px;
+}
+.chain-node {
+  position: relative;
+  border: 1px solid var(--color-neutral-800); border-radius: var(--radius-md);
+  padding: 18px 18px 16px;
+  background: color-mix(in srgb, var(--color-neutral-800) 40%, transparent);
+  display: flex; flex-direction: column; gap: 6px;
+}
+.chain-node + .chain-node::before {
+  content: "\2192"; position: absolute; left: -15px; top: 50%;
+  transform: translateY(-50%);
+  color: color-mix(in srgb, var(--color-text) 42%, transparent); font-size: 14px;
+}
+.chain-era {
+  font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  font-size: 18px; line-height: 1.2;
+}
+.chain-note {
+  font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase;
+  color: color-mix(in srgb, var(--color-text) 55%, transparent);
+}
+.chain-node--now { border-color: var(--color-accent); background: color-mix(in srgb, var(--color-accent-900) 45%, transparent); }
+.chain-node--now .chain-era { color: var(--color-accent); }
+.chain-node--now .chain-note { color: color-mix(in srgb, var(--color-accent-300) 90%, transparent); }
+
+/* Figure wrapper + caption bridging the lineage to the historical narrative. */
+.chain-fig { margin: 0; }
+.chain-caption {
+  margin: 18px 0 0; font-size: 13px; line-height: 22px; max-width: 78ch;
+  color: color-mix(in srgb, var(--color-text) 58%, transparent);
+}
+
+@media (max-width: 720px) {
+  .chain { grid-auto-flow: row; grid-auto-columns: auto; gap: 12px; }
+  .chain-node + .chain-node::before { content: none; }
+}
+
 .related { padding: 72px 0 96px; }
 .related-head { display: flex; align-items: center; gap: 16px; margin-bottom: 30px; }
 .related-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
