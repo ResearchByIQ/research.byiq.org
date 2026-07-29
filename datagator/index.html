@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Datagator — ByIQ Research</title>
-  <meta name="description" content="Tooling for collections of filesystems holding trillions of file nodes — inventory, movement and policy at a scale where walking a tree is not an option. A ByIQ Research proof of concept.">
+  <title>Datagator — Research ByIQ</title>
+  <meta name="description" content="Forensic-grade indexing and deduplication for filesystems, archives, containers and raw devices — every file, stream and path segment cryptographically fingerprinted, in immutable audit-ready snapshots. A Research ByIQ proof of concept.">
   <link rel="canonical" href="https://research.byiq.org/datagator/">
 
   <meta property="og:type" content="website">
-  <meta property="og:site_name" content="ByIQ Research">
-  <meta property="og:title" content="Datagator — ByIQ Research">
-  <meta property="og:description" content="Tooling for collections of filesystems holding trillions of file nodes — inventory, movement and policy at a scale where walking a tree is not an option. A ByIQ Research proof of concept.">
+  <meta property="og:site_name" content="Research ByIQ">
+  <meta property="og:title" content="Datagator — Research ByIQ">
+  <meta property="og:description" content="Forensic-grade indexing and deduplication for filesystems, archives, containers and raw devices — every file, stream and path segment cryptographically fingerprinted, in immutable audit-ready snapshots. A Research ByIQ proof of concept.">
   <meta property="og:url" content="https://research.byiq.org/datagator/">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Datagator — ByIQ Research">
-  <meta name="twitter:description" content="Tooling for collections of filesystems holding trillions of file nodes — inventory, movement and policy at a scale where walking a tree is not an option. A ByIQ Research proof of concept.">
+  <meta name="twitter:title" content="Datagator — Research ByIQ">
+  <meta name="twitter:description" content="Forensic-grade indexing and deduplication for filesystems, archives, containers and raw devices — every file, stream and path segment cryptographically fingerprinted, in immutable audit-ready snapshots. A Research ByIQ proof of concept.">
 
   <link rel="stylesheet" href="../assets/nocturne.css">
   <link rel="stylesheet" href="../assets/site.css">
@@ -25,7 +25,7 @@
   <div class="page-ground">
     <header>
       <nav class="nav site-nav" aria-label="Primary">
-        <a class="nav-brand" href="../">By<span class="brand-iq">IQ</span>&nbsp;Research</a>
+        <a class="nav-brand" href="../">Research&nbsp;By<span class="brand-iq">IQ</span></a>
         <a class="nav-collapse" href="../#projects" aria-current="page">Projects</a>
         <a class="nav-collapse" href="../about/">Thesis</a>
         <a class="nav-collapse" href="../team/">Team</a>
@@ -38,7 +38,7 @@
 
         <div class="project-head">
           <h1 class="project-title">Datagator</h1>
-          <p class="project-lede">Inventory, movement and policy across filesystems with trillions of file nodes — at a scale where walking the tree is no longer an option.</p>
+          <p class="project-lede">Forensic-grade indexing and deduplication for filesystems, archives, containers and raw devices — every file, stream and path segment cryptographically fingerprinted.</p>
           <div class="project-actions">
             <a class="btn btn-primary" href="https://datagator.tech" rel="noopener">datagator.tech</a>
             <a class="btn btn-ghost" href="mailto:research@byiq.org?subject=Datagator%20brief">Request the brief</a>
@@ -49,7 +49,7 @@
       <div class="meta-strip">
         <div>
           <p class="meta-label">Domain</p>
-          <p class="meta-value">Data infrastructure</p>
+          <p class="meta-value">Forensic data</p>
         </div>
         <div>
           <p class="meta-label">Stage</p>
@@ -61,7 +61,7 @@
         </div>
         <div>
           <p class="meta-label">Products</p>
-          <p class="meta-value">Datagator</p>
+          <p class="meta-value">Datagator Core · Pro</p>
         </div>
       </div>
         <hr class="rule-edge">
@@ -70,16 +70,16 @@
     <section class="stat-band" aria-label="Key figures">
       <div class="stat-row">
         <div>
-          <p class="stat-num">10¹²</p>
-          <p class="stat-label">File nodes in scope</p>
+          <p class="stat-num">MD5 + SHA256</p>
+          <p class="stat-label">Identity for every file, stream and path</p>
         </div>
         <div>
-          <p class="stat-num">No tree walk</p>
-          <p class="stat-label">Inventory without traversal</p>
+          <p class="stat-num">Immutable</p>
+          <p class="stat-label">Time-sealed, audit-ready snapshots</p>
         </div>
         <div>
-          <p class="stat-num">Policy</p>
-          <p class="stat-label">Applied at collection scale</p>
+          <p class="stat-num">No cloud</p>
+          <p class="stat-label">100% local, open output formats</p>
         </div>
       </div>
     </section>
@@ -88,35 +88,54 @@
       <section class="p-section split" aria-labelledby="problem">
         <div>
           <div class="kicker"><span class="kicker-dash" aria-hidden="true"></span><span class="kicker-text">The problem</span></div>
-          <h2 class="section-title measure-18" id="problem">At a trillion files, traversal dies.</h2>
+          <h2 class="section-title measure-18" id="problem">You cannot prove what you cannot fingerprint.</h2>
         </div>
         <div class="prose">
-          <p>The standard way to know what is in a filesystem is to walk it. Across a collection of filesystems holding trillions of file nodes, a walk never finishes — inventory is always out of date, movement is guesswork, and policy is applied to a map that no longer matches the territory.</p>
-          <p>The primitives were designed for one tree of manageable size. The problem is now many trees, each beyond the size where enumeration is a viable operation.</p>
+          <p>Storage sprawls across filesystems, archives, containers, snapshots and raw disk images — trillions of files where walking the tree is no longer an option. Standard tools track paths, not truth: they can tell you a name existed, not that the bytes are what they were.</p>
+          <p>Without a cryptographic identity for every file, stream and path segment, and an immutable history to compare against, inventory drifts, deduplication is approximate, and compliance and provenance become an argument rather than a proof.</p>
         </div>
       </section>
       <hr class="rule-inline">
       <section class="p-section split" aria-labelledby="approach">
         <div>
           <div class="kicker"><span class="kicker-dash" aria-hidden="true"></span><span class="kicker-text">The approach</span></div>
-          <h2 class="section-title measure-18" id="approach">Operate without enumerating.</h2>
+          <h2 class="section-title measure-18" id="approach">Store truth, not just paths.</h2>
         </div>
         <div class="approach">
           <div class="approach-item">
             <p class="approach-num">01</p>
             <div>
-              <h3 class="approach-title">Inventory without traversal</h3>
-              <p class="approach-body">Datagator maintains a live picture of collections of filesystems without walking them node by node, so knowing what exists does not require an operation that cannot complete.</p>
+              <h3 class="approach-title">Cryptographic identity</h3>
+              <p class="approach-body">Every file, stream, directory and path segment gets an MD5 + SHA256 identity, with raw and canonical forms both preserved. Paths are Unicode-normalised and control-char-safe, so comparisons hold across encoding and case quirks that break naïve tools.</p>
             </div>
           </div>
           <hr class="rule-inline">
           <div class="approach-item">
             <p class="approach-num">02</p>
             <div>
-              <h3 class="approach-title">Movement and policy at scale</h3>
-              <p class="approach-body">Data movement and retention, access and placement policy are expressed and enforced across the whole collection at once, rather than file by file — the unit of work is the collection, not the node.</p>
+              <h3 class="approach-title">Dedup and composite scanning</h3>
+              <p class="approach-body">Identical content is detected across nested archives, volumes and snapshots; scanning recurses into .zip, .iso, .dmg and .vhd, even inside disk images. It is filesystem-agnostic — NTFS, ext4, APFS, HFS+, FAT, ZFS and raw images all ingest the same way.</p>
             </div>
           </div>
+          <hr class="rule-inline">
+          <div class="approach-item">
+            <p class="approach-num">03</p>
+            <div>
+              <h3 class="approach-title">Immutable, audit-ready history</h3>
+              <p class="approach-body">Time-stamped, signed snapshots carry hash-and-path provenance chains and ACL lineage across NTFS, APFS, ext4 and NFSv4 — the substrate for 21 CFR Part 11 and GDPR audit trails, SBOM generation and AI dataset lineage, with nothing offshored to a cloud.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <hr class="rule-inline">
+      <section class="p-section split" aria-labelledby="philosophy">
+        <div>
+          <div class="kicker"><span class="kicker-dash" aria-hidden="true"></span><span class="kicker-text">Why it matters</span></div>
+          <h2 class="section-title measure" id="philosophy">Names are not paths.</h2>
+        </div>
+        <div class="prose">
+          <p>“We do not store files — we store truth. Names are not paths — they are sequences of intention.” — Datagator Design Memo #001.</p>
+          <p>The uses follow from that stance: chain-of-custody for digital forensics, backup with real deduplication and drift detection, courtroom-admissible diffs, container and firmware reverse engineering, and provenance for AI datasets under the EU AI Act.</p>
         </div>
       </section>
       <hr class="rule-inline">
@@ -131,10 +150,10 @@
             <tr><th>Milestone</th><th>Status</th><th>Evidence</th></tr>
           </thead>
           <tbody>
-            <tr><td>Inventory engine</td><td><span class="tag tag-accent">Running</span></td><td>Alpha, design partner</td></tr>
-            <tr><td>Trillion-node scaling</td><td><span class="tag tag-outline">In progress</span></td><td>Scaling tests</td></tr>
-            <tr><td>Policy enforcement</td><td><span class="tag tag-outline">In progress</span></td><td>Early integration</td></tr>
-            <tr><td>Movement at scale</td><td><span class="tag tag-neutral">Next</span></td><td>—</td></tr>
+            <tr><td>Cryptographic FS indexing (Core)</td><td><span class="tag tag-accent">Running</span></td><td>Alpha, in use</td></tr>
+            <tr><td>Archive + disk-image scanning</td><td><span class="tag tag-accent">Running</span></td><td>In use</td></tr>
+            <tr><td>Deduplication engine (Pro)</td><td><span class="tag tag-outline">In progress</span></td><td>Chunk-level, early</td></tr>
+            <tr><td>Live dashboards & segment sync (Pro)</td><td><span class="tag tag-neutral">Next</span></td><td>—</td></tr>
           </tbody>
         </table>
         <p class="status-note">Figures on this page are targets and internal measurements at proof-of-concept stage. We share the methodology with anyone who wants to run it.</p>
@@ -144,11 +163,11 @@
       <section class="p-section split" aria-labelledby="next">
         <div>
           <div class="kicker"><span class="kicker-dash" aria-hidden="true"></span><span class="kicker-text">What's next</span></div>
-          <h2 class="section-title measure-18" id="next">From alpha to trillion-scale.</h2>
+          <h2 class="section-title measure-18" id="next">Harden Core, ship Pro.</h2>
         </div>
         <div class="prose">
-          <p>The alpha widens toward the trillion-node target on a design partner’s real collections, with policy enforcement and bulk movement proven at the same scale as inventory.</p>
-          <p>Datagator spins out of ByIQ Research once it operates dependably at collection scale in production.</p>
+          <p>Core — the open, test-driven indexing engine — hardens toward trillion-node collections on a design partner’s real data, while Pro adds real-time indexing, dashboards, segment sync and signed, exportable compliance reports.</p>
+          <p>Datagator spins out of Research ByIQ once it holds forensic fidelity at collection scale in production.</p>
         </div>
       </section>
         <hr class="rule-edge">
@@ -158,20 +177,20 @@
           <span class="kicker-text" id="related-heading">Related projects</span>
         </div>
         <div class="related-grid">
-        <a class="card card-link" href="../iot4/">
-          <span class="card-kicker">Digital twins</span>
-          <span class="card-title">IOT4</span>
-          <span class="card-body">Low-latency digital twins past 10⁹ nodes with reliable anomaly prediction.</span>
+        <a class="card card-link" href="../iot4-ai/">
+          <span class="card-kicker">Edge intelligence</span>
+          <span class="card-title">IOT4-AI</span>
+          <span class="card-body">Calibrated, time-aligned feedback loops between devices, control systems and cloud AI — digital twins in the core.</span>
         </a>
         <a class="card card-link" href="../forticom/">
-          <span class="card-kicker">Sovereignty</span>
+          <span class="card-kicker">Sovereign messaging</span>
           <span class="card-title">Forticom</span>
-          <span class="card-body">Sovereign hosting for Signal's end-to-end encrypted messaging.</span>
+          <span class="card-body">The Signal protocol on relay infrastructure you run yourself, with zero metadata retention.</span>
         </a>
-        <a class="card card-link" href="../taraya/">
-          <span class="card-kicker">Sovereign compute</span>
-          <span class="card-title">Taraya</span>
-          <span class="card-body">A sovereign compute city carrying the silicon lifecycle end to end on one site.</span>
+        <a class="card card-link" href="../swiftboot/">
+          <span class="card-kicker">Infrastructure</span>
+          <span class="card-title">SwiftBoot</span>
+          <span class="card-body">Minimal Linux kernels for cloud hypervisors, 30 ms cold boot.</span>
         </a>
         </div>
       </section>
@@ -180,7 +199,7 @@
     </main>
     <hr class="rule">
     <footer class="site-footer">
-      <span>research.byiq.org — By<span class="brand-iq">IQ</span> Research</span>
+      <span>research.byiq.org — Research By<span class="brand-iq">IQ</span></span>
       <span class="footer-links">
         <a href="../#projects">Projects</a>
         <a href="../about/">Thesis</a>

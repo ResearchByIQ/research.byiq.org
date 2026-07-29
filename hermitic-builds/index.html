@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hermitic Builds — Research ByIQ</title>
+  <meta name="description" content="Reproducible builds measured, not hoped for: the Charlton Hermitic Entropy metric counts every entropy source between source and a bit-for-bit binary, so engineering can drive it to zero. A Research ByIQ proof of concept.">
+  <link rel="canonical" href="https://research.byiq.org/hermitic-builds/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Research ByIQ">
+  <meta property="og:title" content="Hermitic Builds — Research ByIQ">
+  <meta property="og:description" content="Reproducible builds measured, not hoped for: the Charlton Hermitic Entropy metric counts every entropy source between source and a bit-for-bit binary, so engineering can drive it to zero. A Research ByIQ proof of concept.">
+  <meta property="og:url" content="https://research.byiq.org/hermitic-builds/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Hermitic Builds — Research ByIQ">
+  <meta name="twitter:description" content="Reproducible builds measured, not hoped for: the Charlton Hermitic Entropy metric counts every entropy source between source and a bit-for-bit binary, so engineering can drive it to zero. A Research ByIQ proof of concept.">
+
+  <link rel="stylesheet" href="../assets/nocturne.css">
+  <link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="page-ground">
+    <header>
+      <nav class="nav site-nav" aria-label="Primary">
+        <a class="nav-brand" href="../">Research&nbsp;By<span class="brand-iq">IQ</span></a>
+        <a class="nav-collapse" href="../#projects" aria-current="page">Projects</a>
+        <a class="nav-collapse" href="../about/">Thesis</a>
+        <a class="nav-collapse" href="../team/">Team</a>
+        <a class="btn btn-primary" href="mailto:research@byiq.org" style="margin-left:auto">Contact</a>
+      </nav>
+    </header>
+    <main id="main">
+      <div class="wrap">
+        <div class="breadcrumb"><a href="../#projects">Projects</a><span class="sep">/</span>Hermitic Builds</div>
+
+        <div class="project-head">
+          <h1 class="project-title">Hermitic Builds</h1>
+          <p class="project-lede">Every build carries a number: the count of entropy sources standing between its source and a bit-for-bit reproducible binary. The goal is to drive it to zero.</p>
+          <div class="project-actions">
+            <a class="btn btn-primary" href="mailto:research@byiq.org?subject=Hermitic%20Builds%20toolkit">Request the toolkit</a>
+            
+          </div>
+        </div>
+
+        <hr class="rule-edge">
+      <div class="meta-strip">
+        <div>
+          <p class="meta-label">Domain</p>
+          <p class="meta-value">Build provenance</p>
+        </div>
+        <div>
+          <p class="meta-label">Stage</p>
+          <p class="meta-value">Research</p>
+        </div>
+        <div>
+          <p class="meta-label">Started</p>
+          <p class="meta-value">2025</p>
+        </div>
+        <div>
+          <p class="meta-label">Products</p>
+          <p class="meta-value">CHE toolkit</p>
+        </div>
+      </div>
+        <hr class="rule-edge">
+      </div>
+
+    <section class="stat-band" aria-label="Key figures">
+      <div class="stat-row">
+        <div>
+          <p class="stat-num">CHE → 0</p>
+          <p class="stat-label">Entropy sources between source and binary</p>
+        </div>
+        <div>
+          <p class="stat-num">HASH1–5</p>
+          <p class="stat-label">A complete provenance record</p>
+        </div>
+        <div>
+          <p class="stat-num">Bitwise</p>
+          <p class="stat-label">The reproducibility target</p>
+        </div>
+      </div>
+    </section>
+
+      <div class="wrap">
+      <section class="p-section split" aria-labelledby="problem">
+        <div>
+          <div class="kicker"><span class="kicker-dash" aria-hidden="true"></span><span class="kicker-text">The problem</span></div>
+          <h2 class="section-title measure-18" id="problem">Nobody can rebuild the binary they shipped.</h2>
+        </div>
+        <div class="prose">
+          <p>Corporate governance keeps the source, sometimes the build container, almost never the resolved toolchain. When a binary has to be reproduced years later for an audit, a liability claim or a forensic reconstruction, the exact inputs are already gone.</p>
+          <p>Non-determinism does the rest quietly — build-time temp files, urandom, clock-based compiler optimizations, uninitialized memory, host config — and almost no one is measuring how much of it a given build contains.</p>
+        </div>
+      </section>
+      <hr class="rule-inline">
+      <section class="p-section split" aria-labelledby="approach">
+        <div>
+          <div class="kicker"><span class="kicker-dash" aria-hidden="true"></span><span class="kicker-text">The approach</span></div>
+          <h2 class="section-title measure-18" id="approach">Make reproducibility a number.</h2>
+        </div>
+        <div class="approach">
+          <div class="approach-item">
+            <p class="approach-num">01</p>
+            <div>
+              <h3 class="approach-title">Seal the build</h3>
+              <p class="approach-body">The whole build runs in a container: source bind-mounted read-only, results read-write, and every tool and system header baked immutably into the image. An strace pass records every file, network, time and /proc access that leaks in.</p>
+            </div>
+          </div>
+          <hr class="rule-inline">
+          <div class="approach-item">
+            <p class="approach-num">02</p>
+            <div>
+              <h3 class="approach-title">Classify every input</h3>
+              <p class="approach-body">Files accessed outside the source tree are traced to their originating packages; the known set is folded back in for reproducibility, and the unknown set is exactly the entropy left to eliminate.</p>
+            </div>
+          </div>
+          <hr class="rule-inline">
+          <div class="approach-item">
+            <p class="approach-num">03</p>
+            <div>
+              <h3 class="approach-title">The CHE metric</h3>
+              <p class="approach-body">Charlton Hermitic Entropy counts the entropy sources that prevent a reproducible build, from source-and-toolchain to container to binary. It turns reproducibility from an aspiration into a number engineering can drive to zero — and a KPI leadership can be held to.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <hr class="rule-inline">
+      <section class="p-section split" aria-labelledby="provenance">
+        <div>
+          <div class="kicker"><span class="kicker-dash" aria-hidden="true"></span><span class="kicker-text">Provenance</span></div>
+          <h2 class="section-title measure" id="provenance">Five hashes, one chain.</h2>
+        </div>
+        <div class="prose">
+          <p>Each build emits a chain of hashes: the parent image, the built container, the resolved package metadata, the source commit and the product binary. Their union is a complete provenance record, and a pair like the container and its source uniquely identifies a binary.</p>
+          <p>The inputs are archived in immutable, owned repositories for the support window plus the liability statute — often decades — and can be logged to an immutable ledger, so any released product can be reconstructed and verified long after the machine that built it is gone.</p>
+        </div>
+      </section>
+      <hr class="rule-inline">
+      <section class="p-section split" aria-labelledby="status">
+        <div>
+          <div class="kicker"><span class="kicker-dash" aria-hidden="true"></span><span class="kicker-text">Where it stands</span></div>
+          <h2 class="section-title measure-18" id="status">Tooling, and honest measurement.</h2>
+        </div>
+        <div>
+        <table class="table">
+          <thead>
+            <tr><th>Milestone</th><th>Status</th><th>Evidence</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Hermetic build + leak detection</td><td><span class="tag tag-accent">Running</span></td><td>strace-based tooling</td></tr>
+            <tr><td>CHE metric + package classification</td><td><span class="tag tag-outline">In progress</span></td><td>On FOSS examples</td></tr>
+            <tr><td>Bitwise-stable rebuilds</td><td><span class="tag tag-outline">In progress</span></td><td>Reproducibility study</td></tr>
+            <tr><td>Provenance archival + ledger</td><td><span class="tag tag-neutral">Next</span></td><td>—</td></tr>
+          </tbody>
+        </table>
+        <p class="status-note">Figures on this page are targets and internal measurements at proof-of-concept stage. We share the methodology with anyone who wants to run it.</p>
+        </div>
+      </section>
+      <hr class="rule-inline">
+      <section class="p-section split" aria-labelledby="next">
+        <div>
+          <div class="kicker"><span class="kicker-dash" aria-hidden="true"></span><span class="kicker-text">What's next</span></div>
+          <h2 class="section-title measure-18" id="next">Publish the number.</h2>
+        </div>
+        <div class="prose">
+          <p>Next is publishing the toolkit and sample CHE calculations for large open-source projects — Android, Linux, PostgreSQL — and pushing representative builds toward bitwise-stable rebuilds.</p>
+          <p>Hermitic Builds spins out of Research ByIQ once CHE is something teams can compute, report and drive down inside their own pipelines.</p>
+        </div>
+      </section>
+        <hr class="rule-edge">
+      <section class="related" aria-labelledby="related-heading">
+        <div class="related-head">
+          <span class="kicker-dash" aria-hidden="true"></span>
+          <span class="kicker-text" id="related-heading">Related projects</span>
+        </div>
+        <div class="related-grid">
+        <a class="card card-link" href="../swiftboot/">
+          <span class="card-kicker">Infrastructure</span>
+          <span class="card-title">SwiftBoot</span>
+          <span class="card-body">Minimal Linux kernels for cloud hypervisors, 30 ms cold boot.</span>
+        </a>
+        <a class="card card-link" href="../keel/">
+          <span class="card-kicker">Cloud infrastructure</span>
+          <span class="card-title">Keel</span>
+          <span class="card-body">A 5–8 MB, security-first HTTP(S) core that hauls legacy services into modern compliance without a rewrite.</span>
+        </a>
+        <a class="card card-link" href="../datagator/">
+          <span class="card-kicker">Forensic data</span>
+          <span class="card-title">Datagator</span>
+          <span class="card-body">Forensic-grade indexing and dedup — every file, stream and path cryptographically fingerprinted.</span>
+        </a>
+        </div>
+      </section>
+        <hr class="rule-edge">
+      </div>
+    </main>
+    <hr class="rule">
+    <footer class="site-footer">
+      <span>research.byiq.org — Research By<span class="brand-iq">IQ</span></span>
+      <span class="footer-links">
+        <a href="../#projects">Projects</a>
+        <a href="../about/">Thesis</a>
+        <a href="../team/">Team</a>
+        <a href="mailto:research@byiq.org">Contact</a>
+      </span>
+    </footer>
+  </div>
+</body>
+</html>

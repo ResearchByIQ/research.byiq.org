@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>LatencyLab — ByIQ Research</title>
-  <meta name="description" content="Decomposing high-level algorithms into flow-based silicon designs, so the dataflow of the problem becomes the floorplan of the chip. A ByIQ Research proof of concept.">
+  <title>LatencyLab — Research ByIQ</title>
+  <meta name="description" content="Latency Labs builds SHAQwave, a symbolic reduction engine that flattens loop-bound algorithms into minimal-depth logic for CPUs, FPGAs and zero-knowledge proofs. A Research ByIQ proof of concept.">
   <link rel="canonical" href="https://research.byiq.org/latencylab/">
 
   <meta property="og:type" content="website">
-  <meta property="og:site_name" content="ByIQ Research">
-  <meta property="og:title" content="LatencyLab — ByIQ Research">
-  <meta property="og:description" content="Decomposing high-level algorithms into flow-based silicon designs, so the dataflow of the problem becomes the floorplan of the chip. A ByIQ Research proof of concept.">
+  <meta property="og:site_name" content="Research ByIQ">
+  <meta property="og:title" content="LatencyLab — Research ByIQ">
+  <meta property="og:description" content="Latency Labs builds SHAQwave, a symbolic reduction engine that flattens loop-bound algorithms into minimal-depth logic for CPUs, FPGAs and zero-knowledge proofs. A Research ByIQ proof of concept.">
   <meta property="og:url" content="https://research.byiq.org/latencylab/">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="LatencyLab — ByIQ Research">
-  <meta name="twitter:description" content="Decomposing high-level algorithms into flow-based silicon designs, so the dataflow of the problem becomes the floorplan of the chip. A ByIQ Research proof of concept.">
+  <meta name="twitter:title" content="LatencyLab — Research ByIQ">
+  <meta name="twitter:description" content="Latency Labs builds SHAQwave, a symbolic reduction engine that flattens loop-bound algorithms into minimal-depth logic for CPUs, FPGAs and zero-knowledge proofs. A Research ByIQ proof of concept.">
 
   <link rel="stylesheet" href="../assets/nocturne.css">
   <link rel="stylesheet" href="../assets/site.css">
@@ -25,7 +25,7 @@
   <div class="page-ground">
     <header>
       <nav class="nav site-nav" aria-label="Primary">
-        <a class="nav-brand" href="../">By<span class="brand-iq">IQ</span>&nbsp;Research</a>
+        <a class="nav-brand" href="../">Research&nbsp;By<span class="brand-iq">IQ</span></a>
         <a class="nav-collapse" href="../#projects" aria-current="page">Projects</a>
         <a class="nav-collapse" href="../about/">Thesis</a>
         <a class="nav-collapse" href="../team/">Team</a>
@@ -38,7 +38,7 @@
 
         <div class="project-head">
           <h1 class="project-title">LatencyLab</h1>
-          <p class="project-lede">When the dataflow of the problem becomes the floorplan of the chip, latency stops being an accident of the architecture.</p>
+          <p class="project-lede">Latency is math. SHAQwave reduces loop-bound algorithms to minimal-depth logic — one reduced form targeting CPUs, FPGAs and zero-knowledge proofs.</p>
           <div class="project-actions">
             <a class="btn btn-primary" href="https://latencylab.ch" rel="noopener">latencylab.ch</a>
             <a class="btn btn-ghost" href="mailto:research@byiq.org?subject=LatencyLab%20research%20note">Request the research note</a>
@@ -49,19 +49,19 @@
       <div class="meta-strip">
         <div>
           <p class="meta-label">Domain</p>
-          <p class="meta-value">Silicon</p>
+          <p class="meta-value">Symbolic compute</p>
         </div>
         <div>
           <p class="meta-label">Stage</p>
-          <p class="meta-value">Early research</p>
+          <p class="meta-value">Research</p>
         </div>
         <div>
           <p class="meta-label">Started</p>
-          <p class="meta-value">2026</p>
+          <p class="meta-value">2025</p>
         </div>
         <div>
           <p class="meta-label">Products</p>
-          <p class="meta-value">—</p>
+          <p class="meta-value">SHAQwave</p>
         </div>
       </div>
         <hr class="rule-edge">
@@ -70,16 +70,16 @@
     <section class="stat-band" aria-label="Key figures">
       <div class="stat-row">
         <div>
-          <p class="stat-num">Dataflow</p>
-          <p class="stat-label">Becomes the floorplan</p>
+          <p class="stat-num">Picoseconds</p>
+          <p class="stat-label">The unit it optimises for</p>
         </div>
         <div>
-          <p class="stat-num">Per problem</p>
-          <p class="stat-label">A silicon design derived, not reused</p>
+          <p class="stat-num">LLVM · RTL · ZK</p>
+          <p class="stat-label">One reduced form, three targets</p>
         </div>
         <div>
-          <p class="stat-num">Target</p>
-          <p class="stat-label">Latency bounded by the algorithm, not the ISA</p>
+          <p class="stat-num">Post-clock</p>
+          <p class="stat-label">Wave-front logic, not clock-bound</p>
         </div>
       </div>
     </section>
@@ -88,33 +88,41 @@
       <section class="p-section split" aria-labelledby="problem">
         <div>
           <div class="kicker"><span class="kicker-dash" aria-hidden="true"></span><span class="kicker-text">The problem</span></div>
-          <h2 class="section-title measure-18" id="problem">General cores hide the shape of the work.</h2>
+          <h2 class="section-title measure-18" id="problem">Loops are where the latency hides.</h2>
         </div>
         <div class="prose">
-          <p>A general-purpose processor runs every algorithm by streaming it through the same fixed pipeline. The structure of the problem — which values depend on which, what can run at once — is flattened into an instruction sequence, and the latency you get is the latency of the ISA, not of the computation.</p>
-          <p>For the workloads where latency is the product, that flattening is the ceiling. The dependency graph is known; it is simply not allowed to shape the hardware.</p>
+          <p>A high-level algorithm run on a general processor spends its time in loops, streamed through a fixed pipeline one step at a time. The depth of those loops — not the logic underneath them — sets the latency, and for high-frequency trading, zero-knowledge proofs and embedded pipelines that depth is the ceiling.</p>
+          <p>The structure is already known: which operations depend on which, and what could run at once. It is simply never allowed to shape the hardware it runs on.</p>
         </div>
       </section>
       <hr class="rule-inline">
       <section class="p-section split" aria-labelledby="approach">
         <div>
           <div class="kicker"><span class="kicker-dash" aria-hidden="true"></span><span class="kicker-text">The approach</span></div>
-          <h2 class="section-title measure-18" id="approach">Let the graph become the layout.</h2>
+          <h2 class="section-title measure-18" id="approach">Reduce the algorithm to logic.</h2>
         </div>
         <div class="approach">
           <div class="approach-item">
             <p class="approach-num">01</p>
             <div>
-              <h3 class="approach-title">Decompose to dataflow</h3>
-              <p class="approach-body">A high-level algorithm is decomposed into its dataflow graph — the operations and the dependencies between them — as the design input, rather than compiled down to instructions for a fixed core.</p>
+              <h3 class="approach-title">Symbolic reduction</h3>
+              <p class="approach-body">SHAQwave is a symbolic reduction engine: it executes an algorithm symbolically, with zero concrete reduction, and flattens loop-heavy, compute-bound code into minimal-depth logic — the shape of the computation, not a sequence of instructions.</p>
             </div>
           </div>
           <hr class="rule-inline">
           <div class="approach-item">
             <p class="approach-num">02</p>
             <div>
-              <h3 class="approach-title">Floorplan from the flow</h3>
-              <p class="approach-body">That graph is mapped directly onto silicon, so independent work runs in parallel by construction and the critical path of the chip is the critical path of the algorithm — the target is latency bounded by the problem itself.</p>
+              <h3 class="approach-title">One reduced form, many targets</h3>
+              <p class="approach-body">That flattened form emits to LLVM for CPUs, RTL for FPGAs, or constraint systems for zero-knowledge proofs — high-level intent turned into hardware-tuned output without rewriting the algorithm three times.</p>
+            </div>
+          </div>
+          <hr class="rule-inline">
+          <div class="approach-item">
+            <p class="approach-num">03</p>
+            <div>
+              <h3 class="approach-title">Wave-front, not clock-bound</h3>
+              <p class="approach-body">Ultra-wide logic evaluation with fan-in-optimised gates, composable across compute rounds and blocks, treats latency as propagation rather than timing — logic for the post-clock world, measured in picoseconds.</p>
             </div>
           </div>
         </div>
@@ -131,10 +139,10 @@
             <tr><th>Milestone</th><th>Status</th><th>Evidence</th></tr>
           </thead>
           <tbody>
-            <tr><td>Dataflow decomposition method</td><td><span class="tag tag-outline">In progress</span></td><td>Internal study</td></tr>
-            <tr><td>Reference problem mapped</td><td><span class="tag tag-outline">In progress</span></td><td>Simulation</td></tr>
-            <tr><td>FPGA validation</td><td><span class="tag tag-neutral">Next</span></td><td>—</td></tr>
-            <tr><td>Tape-out candidate</td><td><span class="tag tag-neutral">Next</span></td><td>—</td></tr>
+            <tr><td>Symbolic reduction core</td><td><span class="tag tag-outline">In progress</span></td><td>Internal study</td></tr>
+            <tr><td>LLVM / RTL / ZK backends</td><td><span class="tag tag-outline">In progress</span></td><td>Prototype targets</td></tr>
+            <tr><td>Reference algorithm, end to end</td><td><span class="tag tag-neutral">Next</span></td><td>—</td></tr>
+            <tr><td>Picosecond depth benchmarks</td><td><span class="tag tag-neutral">Next</span></td><td>—</td></tr>
           </tbody>
         </table>
         <p class="status-note">Figures on this page are targets and internal measurements at proof-of-concept stage. We share the methodology with anyone who wants to run it.</p>
@@ -144,11 +152,11 @@
       <section class="p-section split" aria-labelledby="next">
         <div>
           <div class="kicker"><span class="kicker-dash" aria-hidden="true"></span><span class="kicker-text">What's next</span></div>
-          <h2 class="section-title measure-18" id="next">From simulation to fabric.</h2>
+          <h2 class="section-title measure-18" id="next">Prove one algorithm, end to end.</h2>
         </div>
         <div class="prose">
-          <p>The near-term goal is a reference algorithm carried end to end — decomposed, mapped and validated on an FPGA — with the latency measured against a conventional core on the same workload.</p>
-          <p>LatencyLab spins out of ByIQ Research if the mapped design holds its latency advantage in silicon.</p>
+          <p>The near-term goal is a single reference algorithm carried all the way through — symbolically reduced, then emitted to a CPU, an FPGA and a ZK backend — with logic depth measured against a conventional loop-bound implementation.</p>
+          <p>LatencyLab spins out of Research ByIQ once the reduction holds its advantage on real workloads in cryptography, trading or embedded systems.</p>
         </div>
       </section>
         <hr class="rule-edge">
@@ -180,7 +188,7 @@
     </main>
     <hr class="rule">
     <footer class="site-footer">
-      <span>research.byiq.org — By<span class="brand-iq">IQ</span> Research</span>
+      <span>research.byiq.org — Research By<span class="brand-iq">IQ</span></span>
       <span class="footer-links">
         <a href="../#projects">Projects</a>
         <a href="../about/">Thesis</a>

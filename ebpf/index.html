@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>eBPF Audit — Research ByIQ</title>
+  <meta name="description" content="A defensive audit container that probes your own infrastructure for the default kernel capabilities and eBPF exposure that quietly break container isolation. A Research ByIQ proof of concept.">
+  <link rel="canonical" href="https://research.byiq.org/ebpf/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Research ByIQ">
+  <meta property="og:title" content="eBPF Audit — Research ByIQ">
+  <meta property="og:description" content="A defensive audit container that probes your own infrastructure for the default kernel capabilities and eBPF exposure that quietly break container isolation. A Research ByIQ proof of concept.">
+  <meta property="og:url" content="https://research.byiq.org/ebpf/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="eBPF Audit — Research ByIQ">
+  <meta name="twitter:description" content="A defensive audit container that probes your own infrastructure for the default kernel capabilities and eBPF exposure that quietly break container isolation. A Research ByIQ proof of concept.">
+
+  <link rel="stylesheet" href="../assets/nocturne.css">
+  <link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="page-ground">
+    <header>
+      <nav class="nav site-nav" aria-label="Primary">
+        <a class="nav-brand" href="../">Research&nbsp;By<span class="brand-iq">IQ</span></a>
+        <a class="nav-collapse" href="../#projects" aria-current="page">Projects</a>
+        <a class="nav-collapse" href="../about/">Thesis</a>
+        <a class="nav-collapse" href="../team/">Team</a>
+        <a class="btn btn-primary" href="mailto:research@byiq.org" style="margin-left:auto">Contact</a>
+      </nav>
+    </header>
+    <main id="main">
+      <div class="wrap">
+        <div class="breadcrumb"><a href="../#projects">Projects</a><span class="sep">/</span>eBPF Audit</div>
+
+        <div class="project-head">
+          <h1 class="project-title">eBPF Audit</h1>
+          <p class="project-lede">Container isolation is a hypothesis, not a guarantee. A zero-install audit that probes your own infrastructure for the kernel capabilities that quietly break it.</p>
+          <div class="project-actions">
+            <a class="btn btn-primary" href="mailto:research@byiq.org?subject=eBPF%20audit%20container">Request the audit container</a>
+            
+          </div>
+        </div>
+
+        <hr class="rule-edge">
+      <div class="meta-strip">
+        <div>
+          <p class="meta-label">Domain</p>
+          <p class="meta-value">Container security</p>
+        </div>
+        <div>
+          <p class="meta-label">Stage</p>
+          <p class="meta-value">Tooling</p>
+        </div>
+        <div>
+          <p class="meta-label">Started</p>
+          <p class="meta-value">2025</p>
+        </div>
+        <div>
+          <p class="meta-label">Products</p>
+          <p class="meta-value">Audit container</p>
+        </div>
+      </div>
+        <hr class="rule-edge">
+      </div>
+
+    <section class="stat-band" aria-label="Key figures">
+      <div class="stat-row">
+        <div>
+          <p class="stat-num">No 0-day</p>
+          <p class="stat-label">Default capabilities are enough</p>
+        </div>
+        <div>
+          <p class="stat-num">Runs anywhere</p>
+          <p class="stat-label">Docker, Podman, K8s, CI runners</p>
+        </div>
+        <div>
+          <p class="stat-num">Zero install</p>
+          <p class="stat-label">One container, one report</p>
+        </div>
+      </div>
+    </section>
+
+      <div class="wrap">
+      <section class="p-section split" aria-labelledby="problem">
+        <div>
+          <div class="kicker"><span class="kicker-dash" aria-hidden="true"></span><span class="kicker-text">The problem</span></div>
+          <h2 class="section-title measure-18" id="problem">Isolation you never tested.</h2>
+        </div>
+        <div class="prose">
+          <p>Container fences — cgroups, seccomp, AppArmor, SELinux — are assumed to hold. But a process holding capabilities like CAP_SYS_ADMIN or CAP_BPF can use the shared kernel as a side door: reading a neighbour tenant’s files and secrets, reconstructing traffic, and slipping past audit logs, with no disk writes, no packets and no exploit.</p>
+          <p>These capabilities persist by default in real CI/CD runners and orchestrators. The exposure is not a novel CVE; it is a configuration nobody checked.</p>
+        </div>
+      </section>
+      <hr class="rule-inline">
+      <section class="p-section split" aria-labelledby="approach">
+        <div>
+          <div class="kicker"><span class="kicker-dash" aria-hidden="true"></span><span class="kicker-text">The approach</span></div>
+          <h2 class="section-title measure-18" id="approach">Test the boundary, then close it.</h2>
+        </div>
+        <div class="approach">
+          <div class="approach-item">
+            <p class="approach-num">01</p>
+            <div>
+              <h3 class="approach-title">Probe for latent privilege</h3>
+              <p class="approach-body">A self-contained audit container inspects the host and its neighbours for the dangerous capabilities and kernel exposure that enable cross-boundary observation — CAP_SYS_ADMIN, CAP_BPF, CAP_DAC_READ_SEARCH, CAP_NET_ADMIN and their kin.</p>
+            </div>
+          </div>
+          <hr class="rule-inline">
+          <div class="approach-item">
+            <p class="approach-num">02</p>
+            <div>
+              <h3 class="approach-title">Runs where you deploy</h3>
+              <p class="approach-body">Zero-config, it runs on Docker, Podman, Kubernetes nodes and CI runners. You run it against infrastructure you own and operate, and it hands back a plain report of what leaks.</p>
+            </div>
+          </div>
+          <hr class="rule-inline">
+          <div class="approach-item">
+            <p class="approach-num">03</p>
+            <div>
+              <h3 class="approach-title">Findings map to fixes</h3>
+              <p class="approach-body">Every finding points at a concrete mitigation: rootless containers, tighter seccomp and AppArmor profiles, disabling unprivileged eBPF, and dropping capabilities that were never needed in the first place.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <hr class="rule-inline">
+      <section class="p-section split" aria-labelledby="status">
+        <div>
+          <div class="kicker"><span class="kicker-dash" aria-hidden="true"></span><span class="kicker-text">Where it stands</span></div>
+          <h2 class="section-title measure-18" id="status">A working audit.</h2>
+        </div>
+        <div>
+        <table class="table">
+          <thead>
+            <tr><th>Milestone</th><th>Status</th><th>Evidence</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Capability + kernel-exposure probe</td><td><span class="tag tag-accent">Running</span></td><td>Audit container</td></tr>
+            <tr><td>Docker / Podman / K8s / CI coverage</td><td><span class="tag tag-outline">In progress</span></td><td>Broadening</td></tr>
+            <tr><td>Mitigation guidance</td><td><span class="tag tag-outline">In progress</span></td><td>Mapped to findings</td></tr>
+            <tr><td>CI/CD gate mode</td><td><span class="tag tag-neutral">Next</span></td><td>—</td></tr>
+          </tbody>
+        </table>
+        <p class="status-note">eBPF Audit is a defensive tool for testing infrastructure you own and operate. Figures are internal measurements at proof-of-concept stage.</p>
+        </div>
+      </section>
+      <hr class="rule-inline">
+      <section class="p-section split" aria-labelledby="next">
+        <div>
+          <div class="kicker"><span class="kicker-dash" aria-hidden="true"></span><span class="kicker-text">What's next</span></div>
+          <h2 class="section-title measure-18" id="next">From audit to gate.</h2>
+        </div>
+        <div class="prose">
+          <p>The tool grows from a one-shot audit into a CI/CD gate that fails a build when a runner exposes dangerous capabilities — so the check runs on every deploy rather than once.</p>
+          <p>eBPF Audit spins out of Research ByIQ once it runs cleanly across the major container platforms and orchestrators.</p>
+        </div>
+      </section>
+        <hr class="rule-edge">
+      <section class="related" aria-labelledby="related-heading">
+        <div class="related-head">
+          <span class="kicker-dash" aria-hidden="true"></span>
+          <span class="kicker-text" id="related-heading">Related projects</span>
+        </div>
+        <div class="related-grid">
+        <a class="card card-link" href="../forticom/">
+          <span class="card-kicker">Sovereign messaging</span>
+          <span class="card-title">Forticom</span>
+          <span class="card-body">The Signal protocol on relay infrastructure you run yourself, with zero metadata retention.</span>
+        </a>
+        <a class="card card-link" href="../swiftboot/">
+          <span class="card-kicker">Infrastructure</span>
+          <span class="card-title">SwiftBoot</span>
+          <span class="card-body">Minimal Linux kernels for cloud hypervisors, 30 ms cold boot.</span>
+        </a>
+        <a class="card card-link" href="../hermitic-builds/">
+          <span class="card-kicker">Build provenance</span>
+          <span class="card-title">Hermitic Builds</span>
+          <span class="card-body">Reproducible builds measured, not hoped for — the Charlton Hermitic Entropy metric, driven to zero.</span>
+        </a>
+        </div>
+      </section>
+        <hr class="rule-edge">
+      </div>
+    </main>
+    <hr class="rule">
+    <footer class="site-footer">
+      <span>research.byiq.org — Research By<span class="brand-iq">IQ</span></span>
+      <span class="footer-links">
+        <a href="../#projects">Projects</a>
+        <a href="../about/">Thesis</a>
+        <a href="../team/">Team</a>
+        <a href="mailto:research@byiq.org">Contact</a>
+      </span>
+    </footer>
+  </div>
+</body>
+</html>

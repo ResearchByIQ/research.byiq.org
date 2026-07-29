@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Keel — Research ByIQ</title>
+  <meta name="description" content="A small-footprint, security-first HTTP(S) core for Kubernetes and long-lived ops — 5–8 MB images, TLS 1.3-only, and a sidecar that hauls legacy services into modern compliance without a rewrite. Released open source. A Research ByIQ proof of concept.">
+  <link rel="canonical" href="https://research.byiq.org/keel/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Research ByIQ">
+  <meta property="og:title" content="Keel — Research ByIQ">
+  <meta property="og:description" content="A small-footprint, security-first HTTP(S) core for Kubernetes and long-lived ops — 5–8 MB images, TLS 1.3-only, and a sidecar that hauls legacy services into modern compliance without a rewrite. Released open source. A Research ByIQ proof of concept.">
+  <meta property="og:url" content="https://research.byiq.org/keel/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Keel — Research ByIQ">
+  <meta name="twitter:description" content="A small-footprint, security-first HTTP(S) core for Kubernetes and long-lived ops — 5–8 MB images, TLS 1.3-only, and a sidecar that hauls legacy services into modern compliance without a rewrite. Released open source. A Research ByIQ proof of concept.">
+
+  <link rel="stylesheet" href="../assets/nocturne.css">
+  <link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="page-ground">
+    <header>
+      <nav class="nav site-nav" aria-label="Primary">
+        <a class="nav-brand" href="../">Research&nbsp;By<span class="brand-iq">IQ</span></a>
+        <a class="nav-collapse" href="../#projects" aria-current="page">Projects</a>
+        <a class="nav-collapse" href="../about/">Thesis</a>
+        <a class="nav-collapse" href="../team/">Team</a>
+        <a class="btn btn-primary" href="mailto:research@byiq.org" style="margin-left:auto">Contact</a>
+      </nav>
+    </header>
+    <main id="main">
+      <div class="wrap">
+        <div class="breadcrumb"><a href="../#projects">Projects</a><span class="sep">/</span>Keel</div>
+
+        <div class="project-head">
+          <h1 class="project-title">Keel</h1>
+          <p class="project-lede">A security-first HTTP(S) core small enough to disappear — 5–8 MB, TLS 1.3-only — that wraps legacy services in modern compliance without a rewrite.</p>
+          <div class="project-actions">
+            <a class="btn btn-primary" href="https://github.com/keelcore/keel" rel="noopener">github.com/keelcore/keel</a>
+            <a class="btn btn-ghost" href="https://github.com/keelcore/keel#documentation">Read the docs</a>
+          </div>
+        </div>
+
+        <hr class="rule-edge">
+      <div class="meta-strip">
+        <div>
+          <p class="meta-label">Domain</p>
+          <p class="meta-value">Cloud infrastructure</p>
+        </div>
+        <div>
+          <p class="meta-label">Stage</p>
+          <p class="meta-value">Released, open source</p>
+        </div>
+        <div>
+          <p class="meta-label">Started</p>
+          <p class="meta-value">2025</p>
+        </div>
+        <div>
+          <p class="meta-label">Products</p>
+          <p class="meta-value">Keel</p>
+        </div>
+      </div>
+        <hr class="rule-edge">
+      </div>
+
+    <section class="stat-band" aria-label="Key figures">
+      <div class="stat-row">
+        <div>
+          <p class="stat-num">5–8 MB</p>
+          <p class="stat-label">Scratch-style production image</p>
+        </div>
+        <div>
+          <p class="stat-num">TLS 1.3</p>
+          <p class="stat-label">Only, by default</p>
+        </div>
+        <div>
+          <p class="stat-num">10+ years</p>
+          <p class="stat-label">The durability target</p>
+        </div>
+      </div>
+    </section>
+
+      <div class="wrap">
+      <section class="p-section split" aria-labelledby="problem">
+        <div>
+          <div class="kicker"><span class="kicker-dash" aria-hidden="true"></span><span class="kicker-text">The problem</span></div>
+          <h2 class="section-title measure-18" id="problem">Compliance is a rewrite nobody funds.</h2>
+        </div>
+        <div class="prose">
+          <p>A legacy HTTP service fails modern security posture — TLS policy, OWASP headers, authentication, authorization, observability — and the usual fix is a rewrite or a heavyweight service mesh. The tools that could wrap it instead are either not application-integrated, like nginx and HAProxy, or a kitchen sink that dwarfs the app it protects.</p>
+          <p>So the real competitor is the status quo: services left non-compliant because hardening them costs more than anyone will spend.</p>
+        </div>
+      </section>
+      <hr class="rule-inline">
+      <section class="p-section split" aria-labelledby="approach">
+        <div>
+          <div class="kicker"><span class="kicker-dash" aria-hidden="true"></span><span class="kicker-text">The approach</span></div>
+          <h2 class="section-title measure-18" id="approach">The smallest secure core.</h2>
+        </div>
+        <div class="approach">
+          <div class="approach-item">
+            <p class="approach-num">01</p>
+            <div>
+              <h3 class="approach-title">A minimal, security-first core</h3>
+              <p class="approach-body">Keel is the smallest useful subset of an HTTP(S) server, fully app-integrated: TLS 1.3-only, OWASP hardening, JWT and mTLS authentication, external OPA or HTTP authorization, tracing and metrics. Everything is default-on and opted out at build time, so nothing you do not use is linked and images land in the 5–8 MB range.</p>
+            </div>
+          </div>
+          <hr class="rule-inline">
+          <div class="approach-item">
+            <p class="approach-num">02</p>
+            <div>
+              <h3 class="approach-title">Keel-haul legacy into compliance</h3>
+              <p class="approach-body">Run Keel as a sidecar envelope around an old HTTP or HTTPS app — sharing its pod or proxying a remote upstream — and it owns TLS, authentication, hardening, observability and backpressure without a single change to the application.</p>
+            </div>
+          </div>
+          <hr class="rule-inline">
+          <div class="approach-item">
+            <p class="approach-num">03</p>
+            <div>
+              <h3 class="approach-title">Backpressure before the OOM</h3>
+              <p class="approach-body">Keel watches heap usage and flips its readiness probe before the process is OOM-killed, so the load balancer drains it gracefully instead of dropping requests. Built to behave predictably in Kubernetes, systemd and the boring infrastructure that has to run for a decade.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <hr class="rule-inline">
+      <section class="p-section split" aria-labelledby="status">
+        <div>
+          <div class="kicker"><span class="kicker-dash" aria-hidden="true"></span><span class="kicker-text">Where it stands</span></div>
+          <h2 class="section-title measure-18" id="status">Released, and boring on purpose.</h2>
+        </div>
+        <div>
+        <table class="table">
+          <thead>
+            <tr><th>Milestone</th><th>Status</th><th>Evidence</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>HTTP(S) core — library + sidecar</td><td><span class="tag tag-accent">Running</span></td><td>Released, open source</td></tr>
+            <tr><td>TLS 1.3, OWASP, authn / authz</td><td><span class="tag tag-accent">Running</span></td><td>Default-on</td></tr>
+            <tr><td>FIPS-compatible build (BoringCrypto)</td><td><span class="tag tag-accent">Running</span></td><td>Documented</td></tr>
+            <tr><td>SBOM + provenance per release</td><td><span class="tag tag-accent">Running</span></td><td>Attached to releases</td></tr>
+          </tbody>
+        </table>
+        <p class="status-note">Keel is released and open source. The container-size and durability figures are the project’s stated targets and its own measurements — verify against the SBOM and provenance attached to each GitHub release.</p>
+        </div>
+      </section>
+      <hr class="rule-inline">
+      <section class="p-section split" aria-labelledby="next">
+        <div>
+          <div class="kicker"><span class="kicker-dash" aria-hidden="true"></span><span class="kicker-text">What's next</span></div>
+          <h2 class="section-title measure-18" id="next">"30,000-star boring."</h2>
+        </div>
+        <div class="prose">
+          <p>The roadmap is deliberately conservative — stable APIs, HTTP/2 and HTTP/3, ACME edge mode, more middleware — held under a ten-year durability bar and a goal its authors describe as thirty-thousand-star boring.</p>
+          <p>Keel is the studio’s first released proof. It stands on its own as open-source infrastructure while informing the sealed-build and sovereign-hosting work across the portfolio.</p>
+        </div>
+      </section>
+        <hr class="rule-edge">
+      <section class="related" aria-labelledby="related-heading">
+        <div class="related-head">
+          <span class="kicker-dash" aria-hidden="true"></span>
+          <span class="kicker-text" id="related-heading">Related projects</span>
+        </div>
+        <div class="related-grid">
+        <a class="card card-link" href="../swiftboot/">
+          <span class="card-kicker">Infrastructure</span>
+          <span class="card-title">SwiftBoot</span>
+          <span class="card-body">Minimal Linux kernels for cloud hypervisors, 30 ms cold boot.</span>
+        </a>
+        <a class="card card-link" href="../forticom/">
+          <span class="card-kicker">Sovereign messaging</span>
+          <span class="card-title">Forticom</span>
+          <span class="card-body">The Signal protocol on relay infrastructure you run yourself, with zero metadata retention.</span>
+        </a>
+        <a class="card card-link" href="../hermitic-builds/">
+          <span class="card-kicker">Build provenance</span>
+          <span class="card-title">Hermitic Builds</span>
+          <span class="card-body">Reproducible builds measured, not hoped for — the Charlton Hermitic Entropy metric, driven to zero.</span>
+        </a>
+        </div>
+      </section>
+        <hr class="rule-edge">
+      </div>
+    </main>
+    <hr class="rule">
+    <footer class="site-footer">
+      <span>research.byiq.org — Research By<span class="brand-iq">IQ</span></span>
+      <span class="footer-links">
+        <a href="../#projects">Projects</a>
+        <a href="../about/">Thesis</a>
+        <a href="../team/">Team</a>
+        <a href="mailto:research@byiq.org">Contact</a>
+      </span>
+    </footer>
+  </div>
+</body>
+</html>

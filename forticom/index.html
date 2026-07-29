@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Forticom — ByIQ Research</title>
-  <meta name="description" content="Sovereign hosting for Signal's end-to-end encrypted messaging — the same protocol, operated inside a jurisdiction that owns it. A ByIQ Research proof of concept.">
+  <title>Forticom — Research ByIQ</title>
+  <meta name="description" content="The sovereign platform for trusted messaging: the Signal protocol on relay infrastructure you run yourself, with zero metadata retention and an auditable stack from bootloader to payload. A Research ByIQ proof of concept.">
   <link rel="canonical" href="https://research.byiq.org/forticom/">
 
   <meta property="og:type" content="website">
-  <meta property="og:site_name" content="ByIQ Research">
-  <meta property="og:title" content="Forticom — ByIQ Research">
-  <meta property="og:description" content="Sovereign hosting for Signal's end-to-end encrypted messaging — the same protocol, operated inside a jurisdiction that owns it. A ByIQ Research proof of concept.">
+  <meta property="og:site_name" content="Research ByIQ">
+  <meta property="og:title" content="Forticom — Research ByIQ">
+  <meta property="og:description" content="The sovereign platform for trusted messaging: the Signal protocol on relay infrastructure you run yourself, with zero metadata retention and an auditable stack from bootloader to payload. A Research ByIQ proof of concept.">
   <meta property="og:url" content="https://research.byiq.org/forticom/">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Forticom — ByIQ Research">
-  <meta name="twitter:description" content="Sovereign hosting for Signal's end-to-end encrypted messaging — the same protocol, operated inside a jurisdiction that owns it. A ByIQ Research proof of concept.">
+  <meta name="twitter:title" content="Forticom — Research ByIQ">
+  <meta name="twitter:description" content="The sovereign platform for trusted messaging: the Signal protocol on relay infrastructure you run yourself, with zero metadata retention and an auditable stack from bootloader to payload. A Research ByIQ proof of concept.">
 
   <link rel="stylesheet" href="../assets/nocturne.css">
   <link rel="stylesheet" href="../assets/site.css">
@@ -25,7 +25,7 @@
   <div class="page-ground">
     <header>
       <nav class="nav site-nav" aria-label="Primary">
-        <a class="nav-brand" href="../">By<span class="brand-iq">IQ</span>&nbsp;Research</a>
+        <a class="nav-brand" href="../">Research&nbsp;By<span class="brand-iq">IQ</span></a>
         <a class="nav-collapse" href="../#projects" aria-current="page">Projects</a>
         <a class="nav-collapse" href="../about/">Thesis</a>
         <a class="nav-collapse" href="../team/">Team</a>
@@ -38,7 +38,7 @@
 
         <div class="project-head">
           <h1 class="project-title">Forticom</h1>
-          <p class="project-lede">The same end-to-end encrypted messaging people already trust, operated inside a jurisdiction that owns the deployment.</p>
+          <p class="project-lede">The Signal protocol you already trust, on relay infrastructure you run yourself — sovereign, self-contained and auditable from bootloader to payload.</p>
           <div class="project-actions">
             <a class="btn btn-primary" href="https://forticom.co" rel="noopener">forticom.co</a>
             <a class="btn btn-ghost" href="mailto:research@byiq.org?subject=Forticom%20pilot%20brief">Request the pilot brief</a>
@@ -49,7 +49,7 @@
       <div class="meta-strip">
         <div>
           <p class="meta-label">Domain</p>
-          <p class="meta-value">Sovereignty</p>
+          <p class="meta-value">Sovereign messaging</p>
         </div>
         <div>
           <p class="meta-label">Stage</p>
@@ -61,7 +61,7 @@
         </div>
         <div>
           <p class="meta-label">Products</p>
-          <p class="meta-value">Forticom messaging</p>
+          <p class="meta-value">Forticom relay + client</p>
         </div>
       </div>
         <hr class="rule-edge">
@@ -70,16 +70,16 @@
     <section class="stat-band" aria-label="Key figures">
       <div class="stat-row">
         <div>
-          <p class="stat-num">Same protocol</p>
-          <p class="stat-label">Signal end-to-end encryption</p>
+          <p class="stat-num">Zero metadata</p>
+          <p class="stat-label">Nothing logged, not even session headers</p>
         </div>
         <div>
-          <p class="stat-num">In-jurisdiction</p>
-          <p class="stat-label">Where the service is operated</p>
+          <p class="stat-num">Your relays</p>
+          <p class="stat-label">No shared infrastructure</p>
         </div>
         <div>
-          <p class="stat-num">Zero</p>
-          <p class="stat-label">Change to the guarantees users rely on</p>
+          <p class="stat-num">Boot to payload</p>
+          <p class="stat-label">One auditable stack</p>
         </div>
       </div>
     </section>
@@ -88,35 +88,62 @@
       <section class="p-section split" aria-labelledby="problem">
         <div>
           <div class="kicker"><span class="kicker-dash" aria-hidden="true"></span><span class="kicker-text">The problem</span></div>
-          <h2 class="section-title measure-18" id="problem">Trust in a protocol is not trust in an operator.</h2>
+          <h2 class="section-title measure-18" id="problem">Most "secure" messaging leaks anyway.</h2>
         </div>
         <div class="prose">
-          <p>The cryptography behind Signal's messaging is settled and open. What an organisation or a state cannot always accept is that the service is run somewhere else, under someone else's law, on infrastructure it does not control.</p>
-          <p>The result is a false choice: use the trusted protocol on terms set abroad, or fall back to weaker tools that happen to run at home. The guarantee and the jurisdiction have been bundled together when they need not be.</p>
+          <p>The cryptography in modern messaging can be sound while everything around it is not. Metadata leaks, the servers sit on someone else’s cloud, and the endpoints are trusted without being controlled — all under the label of security.</p>
+          <p>For defense, diplomacy, boardrooms and journalists, the operator, the infrastructure and the metadata are the exposure. A protocol you trust is worth little if you cannot run it yourself, in a place you control, leaving nothing behind.</p>
         </div>
       </section>
       <hr class="rule-inline">
       <section class="p-section split" aria-labelledby="approach">
         <div>
           <div class="kicker"><span class="kicker-dash" aria-hidden="true"></span><span class="kicker-text">The approach</span></div>
-          <h2 class="section-title measure-18" id="approach">Move the operator, keep the guarantee.</h2>
+          <h2 class="section-title measure-18" id="approach">Trusted from the bootloader up.</h2>
         </div>
         <div class="approach">
           <div class="approach-item">
             <p class="approach-num">01</p>
             <div>
-              <h3 class="approach-title">The protocol, unchanged</h3>
-              <p class="approach-body">Forticom runs the same end-to-end encrypted messaging protocol, so the security properties users already rely on are preserved exactly — no bespoke cryptography, no reduction in the guarantee.</p>
+              <h3 class="approach-title">The Signal protocol, kept</h3>
+              <p class="approach-body">Forticom runs the same end-to-end encrypted protocol, privacy-enhanced and container-isolated — no bespoke cryptography and no reduction in the guarantee users already rely on.</p>
             </div>
           </div>
           <hr class="rule-inline">
           <div class="approach-item">
             <p class="approach-num">02</p>
             <div>
-              <h3 class="approach-title">Operated where it matters</h3>
-              <p class="approach-body">The deployment lives inside the jurisdiction that depends on it, on infrastructure that jurisdiction controls, so governance and custody sit with the party accountable for them.</p>
+              <h3 class="approach-title">Relays you run</h3>
+              <p class="approach-body">Self-contained relay infrastructure deploys to your own cloud or bare metal, with no app-store or cloud-push dependency and no shared infrastructure. Private DNS and out-of-band sideband channels let it work offline, behind firewalls, or inside fully isolated enclaves.</p>
             </div>
           </div>
+          <hr class="rule-inline">
+          <div class="approach-item">
+            <p class="approach-num">03</p>
+            <div>
+              <h3 class="approach-title">A hardened root</h3>
+              <p class="approach-body">Built on the <a href="../swiftboot/">SwiftBoot</a> lineage: a trusted kernel, TPM-based keying and per-user hardware identity binding, with the whole stack auditable from bootloader to message payload.</p>
+            </div>
+          </div>
+          <hr class="rule-inline">
+          <div class="approach-item">
+            <p class="approach-num">04</p>
+            <div>
+              <h3 class="approach-title">Nothing retained</h3>
+              <p class="approach-body">Zero metadata retention — nothing logged, not even session headers — and no third-party trackers, analytics or CDNs. Operational modes span ephemeral, stealth, persistent and broadcast, and the stack integrates with compliance and audit workflows without any third-party SaaS.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <hr class="rule-inline">
+      <section class="p-section split" aria-labelledby="who">
+        <div>
+          <div class="kicker"><span class="kicker-dash" aria-hidden="true"></span><span class="kicker-text">Who it is for</span></div>
+          <h2 class="section-title measure-18" id="who">Where the metadata is the risk.</h2>
+        </div>
+        <div class="prose">
+          <p>Defense operators in air-gapped or contested zones. Enterprise security teams keeping messaging inside a compliance boundary. Diplomatic and NGO field agents in censored regions. Executives and boards. Investigative journalists protecting sources.</p>
+          <p>Each needs the same thing: relay control, no external dependencies, and no trace left in an app store, a SIM or a cloud log.</p>
         </div>
       </section>
       <hr class="rule-inline">
@@ -131,10 +158,10 @@
             <tr><th>Milestone</th><th>Status</th><th>Evidence</th></tr>
           </thead>
           <tbody>
-            <tr><td>Sovereign deployment</td><td><span class="tag tag-accent">Running</span></td><td>Pilot environment live</td></tr>
-            <tr><td>Design-partner rollout</td><td><span class="tag tag-outline">In progress</span></td><td>Limited user group</td></tr>
-            <tr><td>Independent security review</td><td><span class="tag tag-outline">In progress</span></td><td>Scheduled</td></tr>
-            <tr><td>Operational handover model</td><td><span class="tag tag-neutral">Next</span></td><td>—</td></tr>
+            <tr><td>Self-contained relay stack</td><td><span class="tag tag-accent">Running</span></td><td>Deploys to cloud or bare metal</td></tr>
+            <tr><td>Signal protocol, container-isolated</td><td><span class="tag tag-accent">Running</span></td><td>In pilot</td></tr>
+            <tr><td>SwiftBoot root + TPM keying</td><td><span class="tag tag-outline">In progress</span></td><td>Endpoint hardening</td></tr>
+            <tr><td>Independent security review</td><td><span class="tag tag-neutral">Next</span></td><td>—</td></tr>
           </tbody>
         </table>
         <p class="status-note">Figures on this page are targets and internal measurements at proof-of-concept stage. We share the methodology with anyone who wants to run it.</p>
@@ -144,11 +171,11 @@
       <section class="p-section split" aria-labelledby="next">
         <div>
           <div class="kicker"><span class="kicker-dash" aria-hidden="true"></span><span class="kicker-text">What's next</span></div>
-          <h2 class="section-title measure-18" id="next">Review, then handover.</h2>
+          <h2 class="section-title measure-18" id="next">Review, then production.</h2>
         </div>
         <div class="prose">
-          <p>The pilot runs to an independent security review of the deployment and an operational model that lets the host jurisdiction take custody without weakening the guarantee.</p>
-          <p>Forticom spins out of ByIQ Research once a first sovereign deployment is in production.</p>
+          <p>The pilot runs to an independent security review of the full stack — bootloader, relay and client — and a first sovereign deployment operated end to end by the party that depends on it.</p>
+          <p>Forticom spins out of Research ByIQ once a first sovereign deployment is in production.</p>
         </div>
       </section>
         <hr class="rule-edge">
@@ -158,15 +185,15 @@
           <span class="kicker-text" id="related-heading">Related projects</span>
         </div>
         <div class="related-grid">
-        <a class="card card-link" href="../datagator/">
-          <span class="card-kicker">Data</span>
-          <span class="card-title">Datagator</span>
-          <span class="card-body">Inventory, movement and policy across filesystems with trillions of file nodes.</span>
+        <a class="card card-link" href="../swiftboot/">
+          <span class="card-kicker">Infrastructure</span>
+          <span class="card-title">SwiftBoot</span>
+          <span class="card-body">Minimal Linux kernels for cloud hypervisors, 30 ms cold boot.</span>
         </a>
-        <a class="card card-link" href="../iot4/">
-          <span class="card-kicker">Digital twins</span>
-          <span class="card-title">IOT4</span>
-          <span class="card-body">Low-latency digital twins past 10⁹ nodes with reliable anomaly prediction.</span>
+        <a class="card card-link" href="../datagator/">
+          <span class="card-kicker">Forensic data</span>
+          <span class="card-title">Datagator</span>
+          <span class="card-body">Forensic-grade indexing and dedup — every file, stream and path cryptographically fingerprinted.</span>
         </a>
         <a class="card card-link" href="../foundation-for-humanity/">
           <span class="card-kicker">Stewardship</span>
@@ -180,7 +207,7 @@
     </main>
     <hr class="rule">
     <footer class="site-footer">
-      <span>research.byiq.org — By<span class="brand-iq">IQ</span> Research</span>
+      <span>research.byiq.org — Research By<span class="brand-iq">IQ</span></span>
       <span class="footer-links">
         <a href="../#projects">Projects</a>
         <a href="../about/">Thesis</a>
