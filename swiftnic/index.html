@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SwiftNic — Research ByIQ</title>
+  <meta name="description" content="A Layer-2 cloud NIC for immutable SwiftBoot workloads — bitwise control of IP headers where the hyperscaler’s network hardware allows, and a public-IP presence for on-prem apps via an ephemeral cloud twin. A Research ByIQ proof of concept.">
+  <link rel="canonical" href="https://research.byiq.org/swiftnic/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Research ByIQ">
+  <meta property="og:title" content="SwiftNic — Research ByIQ">
+  <meta property="og:description" content="A Layer-2 cloud NIC for immutable SwiftBoot workloads — bitwise control of IP headers where the hyperscaler’s network hardware allows, and a public-IP presence for on-prem apps via an ephemeral cloud twin. A Research ByIQ proof of concept.">
+  <meta property="og:url" content="https://research.byiq.org/swiftnic/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="SwiftNic — Research ByIQ">
+  <meta name="twitter:description" content="A Layer-2 cloud NIC for immutable SwiftBoot workloads — bitwise control of IP headers where the hyperscaler’s network hardware allows, and a public-IP presence for on-prem apps via an ephemeral cloud twin. A Research ByIQ proof of concept.">
+
+  <link rel="stylesheet" href="../assets/nocturne.css">
+  <link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="page-ground">
+    <header>
+      <nav class="nav site-nav" aria-label="Primary">
+        <a class="nav-brand" href="../">Research&nbsp;By<span class="brand-iq">IQ</span></a>
+        <a class="nav-collapse" href="../#projects" aria-current="page">Projects</a>
+        <a class="nav-collapse" href="../about/">Thesis</a>
+        <a class="nav-collapse" href="../team/">Team</a>
+        <a class="btn btn-primary" href="mailto:research@byiq.org" style="margin-left:auto">Contact</a>
+      </nav>
+    </header>
+    <main id="main">
+      <div class="wrap">
+        <div class="breadcrumb"><a href="../#projects">Projects</a><span class="sep">/</span>SwiftNic</div>
+
+        <div class="project-head">
+          <h1 class="project-title">SwiftNic</h1>
+          <p class="project-lede">A Layer-2 cloud NIC for immutable SwiftBoot workloads — bitwise control of IP headers, and a public-IP presence for your on-prem app through an ephemeral cloud twin.</p>
+          <div class="project-actions">
+            <a class="btn btn-primary" href="mailto:research@byiq.org?subject=SwiftNic%20brief">Request the brief</a>
+            
+          </div>
+        </div>
+
+        <hr class="rule-edge">
+      <div class="meta-strip">
+        <div>
+          <p class="meta-label">Domain</p>
+          <p class="meta-value">Cloud networking</p>
+        </div>
+        <div>
+          <p class="meta-label">Stage</p>
+          <p class="meta-value">Design</p>
+        </div>
+        <div>
+          <p class="meta-label">Started</p>
+          <p class="meta-value">2025</p>
+        </div>
+        <div>
+          <p class="meta-label">Products</p>
+          <p class="meta-value">SwiftNic</p>
+        </div>
+      </div>
+        <hr class="rule-edge">
+      </div>
+
+    <section class="stat-band" aria-label="Key figures">
+      <div class="stat-row">
+        <div>
+          <p class="stat-num">Layer 2</p>
+          <p class="stat-label">Data-link access to the frame</p>
+        </div>
+        <div>
+          <p class="stat-num">Bitwise</p>
+          <p class="stat-label">IP-header control, where hardware allows</p>
+        </div>
+        <div>
+          <p class="stat-num">Public IP</p>
+          <p class="stat-label">On-prem app, cloud presence</p>
+        </div>
+      </div>
+    </section>
+
+      <div class="wrap">
+      <section class="p-section split" aria-labelledby="problem">
+        <div>
+          <div class="kicker"><span class="kicker-dash" aria-hidden="true"></span><span class="kicker-text">The problem</span></div>
+          <h2 class="section-title measure-18" id="problem">Cloud networking hides the wire.</h2>
+        </div>
+        <div class="prose">
+          <p>A standard cloud NIC hands you an IP and a firewall, not the packet. You cannot touch the Layer-2 frame or rewrite an IP header, so anything that needs control of the wire — custom routing, encapsulation, header-level traffic shaping — is off the table.</p>
+          <p>And giving a local or on-prem containerised app a real public presence means standing up gateway infrastructure with its own mutable lifecycle and attack surface, separate from the app it serves.</p>
+        </div>
+      </section>
+      <hr class="rule-inline">
+      <section class="p-section split" aria-labelledby="approach">
+        <div>
+          <div class="kicker"><span class="kicker-dash" aria-hidden="true"></span><span class="kicker-text">The approach</span></div>
+          <h2 class="section-title measure-18" id="approach">The packet, not just the socket.</h2>
+        </div>
+        <div class="approach">
+          <div class="approach-item">
+            <p class="approach-num">01</p>
+            <div>
+              <h3 class="approach-title">Layer-2 access</h3>
+              <p class="approach-body">SwiftNic operates at the data-link layer with full, bitwise control of IP headers — the frame, not just the socket — wherever the hyperscaler’s network hardware exposes it.</p>
+            </div>
+          </div>
+          <hr class="rule-inline">
+          <div class="approach-item">
+            <p class="approach-num">02</p>
+            <div>
+              <h3 class="approach-title">A cloud twin with a public IP</h3>
+              <p class="approach-body">An immutable, distroless <a href="/swiftboot/">SwiftBoot</a> micro-VM launches in the cloud paired to your OCI app, provisions a virtual cloud NIC with a public IP, and carries traffic between your payload and the global network.</p>
+            </div>
+          </div>
+          <hr class="rule-inline">
+          <div class="approach-item">
+            <p class="approach-num">03</p>
+            <div>
+              <h3 class="approach-title">Ephemeral by design</h3>
+              <p class="approach-body">When the app stops, the NIC is de-provisioned and the twin terminates. Nothing mutable is left running between sessions.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <hr class="rule-inline">
+      <section class="p-section split" aria-labelledby="status">
+        <div>
+          <div class="kicker"><span class="kicker-dash" aria-hidden="true"></span><span class="kicker-text">Where it stands</span></div>
+          <h2 class="section-title measure-18" id="status">Design, honestly labelled.</h2>
+        </div>
+        <div>
+        <table class="table">
+          <thead>
+            <tr><th>Milestone</th><th>Status</th><th>Evidence</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>L2 NIC + bitwise IP-header control</td><td><span class="tag tag-outline">In progress</span></td><td>Where hyperscaler hardware supports it</td></tr>
+            <tr><td>Cloud twin + public-IP provisioning</td><td><span class="tag tag-outline">In progress</span></td><td>Design</td></tr>
+            <tr><td>Ephemeral de-provisioning</td><td><span class="tag tag-neutral">Next</span></td><td>—</td></tr>
+            <tr><td>Hyperscaler hardware coverage</td><td><span class="tag tag-neutral">Next</span></td><td>—</td></tr>
+          </tbody>
+        </table>
+        <p class="status-note">Figures on this page are targets and internal measurements at proof-of-concept stage. We share the methodology with anyone who wants to run it.</p>
+        </div>
+      </section>
+      <hr class="rule-inline">
+      <section class="p-section split" aria-labelledby="next">
+        <div>
+          <div class="kicker"><span class="kicker-dash" aria-hidden="true"></span><span class="kicker-text">What's next</span></div>
+          <h2 class="section-title measure-18" id="next">Prove it on real hardware.</h2>
+        </div>
+        <div class="prose">
+          <p>The near-term work proves bitwise header control on a hyperscaler that exposes it at the NIC, and the cloud-twin lifecycle end to end — provision, carry, de-provision — on an immutable SwiftBoot image.</p>
+          <p>SwiftNic spins out of Research ByIQ once the Layer-2 control holds on real hyperscaler hardware.</p>
+        </div>
+      </section>
+        <hr class="rule-edge">
+      <section class="related" aria-labelledby="related-heading">
+        <div class="related-head">
+          <span class="kicker-dash" aria-hidden="true"></span>
+          <span class="kicker-text" id="related-heading">Related projects</span>
+        </div>
+        <div class="related-grid">
+        <a class="card card-link" href="../swiftboot/">
+          <span class="card-kicker">Cloud infrastructure</span>
+          <span class="card-title">SwiftBoot</span>
+          <span class="card-body">An OCI container fused with a minimal kernel into one sealed image — the app is the OS, booting in 30 ms.</span>
+        </a>
+        <a class="card card-link" href="../forticom/">
+          <span class="card-kicker">Sovereign messaging</span>
+          <span class="card-title">Forticom</span>
+          <span class="card-body">The Signal protocol on relay infrastructure you run yourself, with zero metadata retention.</span>
+        </a>
+        <a class="card card-link" href="../keel/">
+          <span class="card-kicker">Cloud infrastructure</span>
+          <span class="card-title">Keel</span>
+          <span class="card-body">A 5–8 MB, security-first HTTP(S) core that hauls legacy services into modern compliance without a rewrite.</span>
+        </a>
+        </div>
+      </section>
+        <hr class="rule-edge">
+      </div>
+    </main>
+    <hr class="rule">
+    <footer class="site-footer">
+      <span>research.byiq.org — Research By<span class="brand-iq">IQ</span></span>
+      <span class="footer-links">
+        <a href="../#projects">Projects</a>
+        <a href="../about/">Thesis</a>
+        <a href="../team/">Team</a>
+        <a href="mailto:research@byiq.org">Contact</a>
+      </span>
+    </footer>
+  </div>
+</body>
+</html>

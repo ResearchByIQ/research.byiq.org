@@ -4,17 +4,17 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SwiftBoot — Research ByIQ</title>
-  <meta name="description" content="SwiftBoot turns an OCI container into a sealed, bootable operating system — the app is the OS. Sub-second boot across cloud and bare metal, immutable and signed, built by the Popper toolchain. A Research ByIQ proof of concept.">
+  <meta name="description" content="SwiftBoot turns an OCI container into a sealed, bootable operating system — the app is the OS. 30 ms cold boot across cloud and bare metal, immutable and signed, run by the Popper VMM. A Research ByIQ proof of concept.">
   <link rel="canonical" href="https://research.byiq.org/swiftboot/">
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Research ByIQ">
   <meta property="og:title" content="SwiftBoot — Research ByIQ">
-  <meta property="og:description" content="SwiftBoot turns an OCI container into a sealed, bootable operating system — the app is the OS. Sub-second boot across cloud and bare metal, immutable and signed, built by the Popper toolchain. A Research ByIQ proof of concept.">
+  <meta property="og:description" content="SwiftBoot turns an OCI container into a sealed, bootable operating system — the app is the OS. 30 ms cold boot across cloud and bare metal, immutable and signed, run by the Popper VMM. A Research ByIQ proof of concept.">
   <meta property="og:url" content="https://research.byiq.org/swiftboot/">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="SwiftBoot — Research ByIQ">
-  <meta name="twitter:description" content="SwiftBoot turns an OCI container into a sealed, bootable operating system — the app is the OS. Sub-second boot across cloud and bare metal, immutable and signed, built by the Popper toolchain. A Research ByIQ proof of concept.">
+  <meta name="twitter:description" content="SwiftBoot turns an OCI container into a sealed, bootable operating system — the app is the OS. 30 ms cold boot across cloud and bare metal, immutable and signed, run by the Popper VMM. A Research ByIQ proof of concept.">
 
   <link rel="stylesheet" href="../assets/nocturne.css">
   <link rel="stylesheet" href="../assets/site.css">
@@ -38,7 +38,7 @@
 
         <div class="project-head">
           <h1 class="project-title">SwiftBoot</h1>
-          <p class="project-lede">Your app, your kernel, zero overhead — an OCI container fused with a minimal kernel into one sealed image that boots in under a second.</p>
+          <p class="project-lede">Your app, your kernel, zero overhead — an OCI container fused with a minimal kernel into one sealed image that boots in 30 ms.</p>
           <div class="project-actions">
             <a class="btn btn-primary" href="https://swiftboot.dev" rel="noopener">swiftboot.dev</a>
             <a class="btn btn-ghost" href="mailto:research@byiq.org?subject=SwiftBoot%20benchmark">Request the benchmark</a>
@@ -70,7 +70,7 @@
     <section class="stat-band" aria-label="Key figures">
       <div class="stat-row">
         <div>
-          <p class="stat-num">Under 1s</p>
+          <p class="stat-num">30 ms</p>
           <p class="stat-label">Cold boot, cloud and bare metal</p>
         </div>
         <div>
@@ -106,7 +106,7 @@
             <p class="approach-num">01</p>
             <div>
               <h3 class="approach-title">SwiftBoot — the minimal kernel</h3>
-              <p class="approach-body">The core is a Linux kernel composed for one OCI application through overlay-based configuration — only the drivers, subsystems and init that workload needs, and nothing else in the boot path.</p>
+              <p class="approach-body">The core is a Linux kernel — a fork with an overlay-based, reproducible config system laid over the kernel’s gitroot — composed for one OCI application: only the drivers, subsystems and init that workload needs, and nothing else in the boot path. It ships per-target configs for QEMU, AWS (Nitro and Xen), Azure Hyper-V, GCP KVM and Apple Virtualization (AVF), on both x86_64 and arm64.</p>
             </div>
           </div>
           <hr class="rule-inline">
@@ -114,7 +114,7 @@
             <p class="approach-num">02</p>
             <div>
               <h3 class="approach-title">Popcorn — the app as the OS</h3>
-              <p class="approach-body">Popcorn fuses that kernel with your container into a single sealed, bootable image: the app is the operating system. Immutable and signed, with no mutable host and no separate runtime to schedule, it boots in under a second across AWS, Azure, GCP and bare metal. See <a href="https://swiftboot.dev" rel="noopener">swiftboot.dev</a>.</p>
+              <p class="approach-body">Popcorn fuses that kernel with your container into a single sealed, bootable image: the app is the operating system. Immutable and signed, with no mutable host and no separate runtime to schedule, it boots in 30 ms across AWS, Azure, GCP and bare metal. See <a href="https://swiftboot.dev" rel="noopener">swiftboot.dev</a>.</p>
             </div>
           </div>
           <hr class="rule-inline">
@@ -139,9 +139,9 @@
             <tr><th>Milestone</th><th>Status</th><th>Evidence</th></tr>
           </thead>
           <tbody>
-            <tr><td>Sub-second boot</td><td><span class="tag tag-accent">Running</span></td><td>~300–800 ms (QEMU / AWS / Azure / GCP)</td></tr>
+            <tr><td>30 ms cold boot</td><td><span class="tag tag-accent">Running</span></td><td>Internal benchmark, reproducible</td></tr>
+            <tr><td>Multi-target hypervisor configs</td><td><span class="tag tag-accent">Running</span></td><td>AWS · Azure · GCP · AVF · QEMU, x86_64 + arm64</td></tr>
             <tr><td>Popcorn sealed-image build</td><td><span class="tag tag-accent">Running</span></td><td>In use</td></tr>
-            <tr><td>Popper toolchain + manifests</td><td><span class="tag tag-outline">In progress</span></td><td>Schema-validated</td></tr>
             <tr><td>Supply-chain attestation + signing</td><td><span class="tag tag-outline">In progress</span></td><td>Build signing</td></tr>
           </tbody>
         </table>
@@ -166,6 +166,11 @@
           <span class="kicker-text" id="related-heading">Related projects</span>
         </div>
         <div class="related-grid">
+        <a class="card card-link" href="../swiftnic/">
+          <span class="card-kicker">Cloud networking</span>
+          <span class="card-title">SwiftNic</span>
+          <span class="card-body">A Layer-2 cloud NIC for SwiftBoot workloads — bitwise IP-header control and a public-IP presence via an immutable cloud twin.</span>
+        </a>
         <a class="card card-link" href="../hermitic-builds/">
           <span class="card-kicker">Build provenance</span>
           <span class="card-title">Hermitic Builds</span>
@@ -175,11 +180,6 @@
           <span class="card-kicker">Sovereign messaging</span>
           <span class="card-title">Forticom</span>
           <span class="card-body">The Signal protocol on relay infrastructure you run yourself, with zero metadata retention.</span>
-        </a>
-        <a class="card card-link" href="../keel/">
-          <span class="card-kicker">Cloud infrastructure</span>
-          <span class="card-title">Keel</span>
-          <span class="card-body">A 5–8 MB, security-first HTTP(S) core that hauls legacy services into modern compliance without a rewrite.</span>
         </a>
         </div>
       </section>
