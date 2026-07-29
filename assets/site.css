@@ -208,6 +208,26 @@ body { background: var(--color-bg); text-wrap: pretty; }
 }
 .project-actions { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: 34px; }
 
+/* Name / mythos line under the lede — quieter than the lede, with the term
+   itself lifted back toward full text contrast. */
+.project-note {
+  font-size: 16px; line-height: 27px; max-width: 52ch; margin: 22px 0 0;
+  color: color-mix(in srgb, var(--color-text) 62%, transparent);
+}
+.project-note em {
+  font-style: italic; color: color-mix(in srgb, var(--color-text) 84%, transparent);
+}
+
+/* Pull-quote — a single line lifted out of the prose for cadence, marked by
+   an accent edge. Standalone (not inside .prose) so it keeps its own scale. */
+.pull {
+  font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  font-size: 24px; line-height: 34px; letter-spacing: -0.008em;
+  margin: 30px 0 0; padding-left: 22px; max-width: 40ch;
+  border-left: 2px solid var(--color-accent);
+  color: color-mix(in srgb, var(--color-text) 92%, transparent);
+}
+
 /* Right-fading rule painted from the divider token (bounds meta strip,
    related and footer); .rule-inline (neutral-700) parts the body sections. */
 .rule-edge {
