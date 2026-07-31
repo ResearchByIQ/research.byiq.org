@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DAFT — Research ByIQ</title>
+  <meta name="description" content="DAFt — Dumb And Fast Tasks: a server-less, git-native CI/CD system where every state change is a signed git commit, runners are your own heterogeneous hardware, and cloud runners exist only while a job is queued. A Research ByIQ proof of concept.">
+  <link rel="canonical" href="https://research.byiq.org/daft/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Research ByIQ">
+  <meta property="og:title" content="DAFT — Research ByIQ">
+  <meta property="og:description" content="A server-less, git-native CI/CD system: the audit log is the repository, runners are your own heterogeneous hardware, and cloud runners exist only while a job is queued. A Research ByIQ proof of concept.">
+  <meta property="og:url" content="https://research.byiq.org/daft/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="DAFT — Research ByIQ">
+  <meta name="twitter:description" content="A server-less, git-native CI/CD system: the audit log is the repository, runners are your own heterogeneous hardware, and cloud runners exist only while a job is queued. A Research ByIQ proof of concept.">
+
+  <link rel="stylesheet" href="../assets/nocturne.css">
+  <link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="page-ground">
+    <header>
+      <nav class="nav site-nav" aria-label="Primary">
+        <a class="nav-brand" href="../">Research&nbsp;By<span class="brand-iq">IQ</span></a>
+        <a class="nav-collapse" href="../#projects" aria-current="page">Projects</a>
+        <a class="nav-collapse" href="../about/">Thesis</a>
+        <a class="nav-collapse" href="../team/">Team</a>
+        <a class="btn btn-primary" href="mailto:research@byiq.org" style="margin-left:auto">Contact</a>
+      </nav>
+    </header>
+    <main id="main">
+      <div class="wrap">
+        <div class="breadcrumb"><a href="../#projects">Projects</a><span class="sep">/</span>DAFT</div>
+
+        <div class="project-head">
+          <h1 class="project-title">DAFT</h1>
+          <p class="project-lede">Dumb And Fast Tasks — a server-less CI/CD system that lives in your repository. Every state transition is a signed git commit, so history is the audit log and the repo is the database. No server, no database, no JVM, no SaaS bill.</p>
+          <div class="project-actions">
+            <a class="btn btn-primary" href="mailto:research@byiq.org?subject=DAFT">Request access</a>
+            <a class="btn btn-ghost" href="../#projects">Back to projects</a>
+          </div>
+        </div>
+
+        <hr class="rule-edge">
+      <div class="meta-strip">
+        <div>
+          <p class="meta-label">Domain</p>
+          <p class="meta-value">Developer infrastructure</p>
+        </div>
+        <div>
+          <p class="meta-label">Stage</p>
+          <p class="meta-value">Prototype, dogfooded</p>
+        </div>
+        <div>
+          <p class="meta-label">Started</p>
+          <p class="meta-value">2026</p>
+        </div>
+        <div>
+          <p class="meta-label">Products</p>
+          <p class="meta-value">DAFt CICD</p>
+        </div>
+      </div>
+        <hr class="rule-edge">
+      </div>
+
+    <section class="stat-band" aria-label="Key figures">
+      <div class="stat-row">
+        <div>
+          <p class="stat-num">$0/min</p>
+          <p class="stat-label">Marginal cost — your hardware plus power</p>
+        </div>
+        <div>
+          <p class="stat-num">git log</p>
+          <p class="stat-label">Is the entire audit trail</p>
+        </div>
+        <div>
+          <p class="stat-num">Zero-idle</p>
+          <p class="stat-label">Cloud runners exist only while queued</p>
+        </div>
+      </div>
+    </section>
+
+      <div class="wrap">
+      <section class="p-section split" aria-labelledby="problem">
+        <div>
+          <div class="kicker"><span class="kicker-dash" aria-hidden="true"></span><span class="kicker-text">The problem</span></div>
+          <h2 class="section-title measure-18" id="problem">CI/CD meters you, or makes you run a server.</h2>
+        </div>
+        <div class="prose">
+          <p>SaaS CI/CD — GitHub Actions hosted runners, CircleCI, Buildkite, GitLab Premium, Harness — bills on per-minute compute, per-seat fees and warm-pool surcharges. At 50–200 jobs a day across a small team that is real money, and the audit trail lives in a vendor store subject to retention windows and proprietary export. It evaporates the day you cancel.</p>
+          <p>The self-hosted FOSS escape hatch is Jenkins, which trades the bill for a server, a database, a JVM and a plugin-maintenance job nobody wants. For solo developers and five-person shops running their own hardware, neither cohort fits.</p>
+        </div>
+      </section>
+      <hr class="rule-inline">
+      <section class="p-section split" aria-labelledby="approach">
+        <div>
+          <div class="kicker"><span class="kicker-dash" aria-hidden="true"></span><span class="kicker-text">The approach</span></div>
+          <h2 class="section-title measure-18" id="approach">History is the audit log. The repo is the database.</h2>
+        </div>
+        <div class="approach">
+          <div class="approach-item">
+            <p class="approach-num">01</p>
+            <div>
+              <h3 class="approach-title">Every state change is a signed git commit</h3>
+              <p class="approach-body">DAFt records each state transition as a signed commit, so the pipeline's whole history is reproducible with <code>git log --reverse</code>, exportable to any git host, and verifiable against the original public keys. There is no separate control-plane database to trust, back up, or lose — the audit trail is the repository, forever.</p>
+            </div>
+          </div>
+          <hr class="rule-inline">
+          <div class="approach-item">
+            <p class="approach-num">02</p>
+            <div>
+              <h3 class="approach-title">Your hardware, one logical pool</h3>
+              <p class="approach-body">Runners are a queue attribute, not a vendor menu. Cloud x86 (AWS, Hetzner, Fly), ARM64 on a sleeping Mac mini woken over wake-on-LAN, a GPU host, and bare metal in a closet all live in the same pool, scoped by ISA and capability — no separate plan tier for ARM, GPU, or on-prem.</p>
+            </div>
+          </div>
+          <hr class="rule-inline">
+          <div class="approach-item">
+            <p class="approach-num">03</p>
+            <div>
+              <h3 class="approach-title">Zero-idle cloud runners</h3>
+              <p class="approach-body">The DAFt Shepherd allocates a cloud VM only when a job is in queue and tears it down within seconds of idle. A runner that is not executing, draining or bootstrapping does not exist — so there is no warm-pool surcharge and adding the eleventh runner is free.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <hr class="rule-inline">
+      <section class="p-section split" aria-labelledby="status">
+        <div>
+          <div class="kicker"><span class="kicker-dash" aria-hidden="true"></span><span class="kicker-text">Where it stands</span></div>
+          <h2 class="section-title measure-18" id="status">An early MVP, running our own repos.</h2>
+        </div>
+        <div>
+        <table class="table">
+          <thead>
+            <tr><th>Milestone</th><th>Status</th><th>Evidence</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Task engine — single-purpose Bash components</td><td><span class="tag tag-accent">Running</span></td><td>Dogfooded on studio repos</td></tr>
+            <tr><td>Signed-git-commit audit trail</td><td><span class="tag tag-accent">Running</span></td><td><code>git log --reverse</code></td></tr>
+            <tr><td>Shepherd — zero-idle cloud runners</td><td><span class="tag tag-outline">In progress</span></td><td>Roadmap groups 1–7</td></tr>
+            <tr><td>Heterogeneous runner pool (x86 / ARM / GPU)</td><td><span class="tag tag-outline">In progress</span></td><td>Roadmap</td></tr>
+          </tbody>
+        </table>
+        <p class="status-note">DAFt is an early MVP (v0.1.x) used internally as the studio's own CI. The full roadmap has not shipped, and the comparison claims against SaaS and Jenkins assume it has — treat the cost and behaviour figures as design targets and self-measurements until an external benchmark confirms them.</p>
+        </div>
+      </section>
+      <hr class="rule-inline">
+      <section class="p-section split" aria-labelledby="next">
+        <div>
+          <div class="kicker"><span class="kicker-dash" aria-hidden="true"></span><span class="kicker-text">What's next</span></div>
+          <h2 class="section-title measure-18" id="next">FOSS core, with a hook that pays.</h2>
+        </div>
+        <div class="prose">
+          <p>The core is free and open source, competing head-on with the paid CI/CD rack. The commercial question — the one that decides whether DAFt becomes a company rather than a beloved tool — is the paid hook above the core: a managed Shepherd control plane for teams that do not want to run their own, and a signing and compliance tier for regulated buyers.</p>
+          <p>DAFt is also the studio's build-and-release substrate: its signed-commit provenance feeds the reproducible-build and sealed-image work across the portfolio, so the CI that assembles a sovereign compute base can itself run on hardware you own.</p>
+        </div>
+      </section>
+        <hr class="rule-edge">
+      <section class="related" aria-labelledby="related-heading">
+        <div class="related-head">
+          <span class="kicker-dash" aria-hidden="true"></span>
+          <span class="kicker-text" id="related-heading">Related projects</span>
+        </div>
+        <div class="related-grid">
+        <a class="card card-link" href="../hermitic-builds/">
+          <span class="card-kicker">Build provenance</span>
+          <span class="card-title">Hermitic Builds</span>
+          <span class="card-body">Reproducible builds measured, not hoped for — the pipeline DAFt runs, with entropy driven to zero.</span>
+        </a>
+        <a class="card card-link" href="../keel/">
+          <span class="card-kicker">Cloud infrastructure</span>
+          <span class="card-title">Keel</span>
+          <span class="card-body">A security-first HTTP(S) core small enough to disappear — the studio's first released open-source proof.</span>
+        </a>
+        <a class="card card-link" href="../swiftboot/">
+          <span class="card-kicker">Cloud infrastructure</span>
+          <span class="card-title">SwiftBoot</span>
+          <span class="card-body">An OCI container fused with a minimal kernel into one sealed image — the artifact DAFt is built to assemble and sign.</span>
+        </a>
+        </div>
+      </section>
+        <hr class="rule-edge">
+      </div>
+    </main>
+    <hr class="rule">
+    <footer class="site-footer">
+      <span>research.byiq.org — Research By<span class="brand-iq">IQ</span></span>
+      <span class="footer-links">
+        <a href="../#projects">Projects</a>
+        <a href="../about/">Thesis</a>
+        <a href="../team/">Team</a>
+        <a href="mailto:research@byiq.org">Contact</a>
+      </span>
+    </footer>
+  </div>
+</body>
+</html>
