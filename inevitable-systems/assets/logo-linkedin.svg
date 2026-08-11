@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" role="img" aria-label="Inevitable Systems">
+  <title>Inevitable Systems</title>
+  <defs>
+    <linearGradient id="isBg" x1="0" y1="0" x2="300" y2="300" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1b1d2e"/>
+      <stop offset="1" stop-color="#121320"/>
+    </linearGradient>
+    <linearGradient id="isAccent" x1="86" y1="72" x2="210" y2="234" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#c3bafd"/>
+      <stop offset="0.55" stop-color="#9184d9"/>
+      <stop offset="1" stop-color="#6d5fb0"/>
+    </linearGradient>
+  </defs>
+  <rect width="300" height="300" rx="60" fill="url(#isBg)"/>
+  <rect x="1.5" y="1.5" width="297" height="297" rx="58.5" fill="none" stroke="#9184d9" stroke-opacity="0.22" stroke-width="3"/>
+  <g transform="translate(60 60) scale(1.8)">
+    <g fill="none" stroke="url(#isAccent)" stroke-width="8.5" stroke-linecap="round">
+      <line x1="21" y1="27" x2="79" y2="27"/>
+      <line x1="31" y1="45" x2="69" y2="45"/>
+      <line x1="41" y1="63" x2="59" y2="63"/>
+    </g>
+    <circle cx="50" cy="81" r="6.5" fill="url(#isAccent)"/>
+  </g>
+</svg>
